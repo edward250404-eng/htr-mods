@@ -1,0 +1,69 @@
+# Репозиторий: github.com/edward250404-eng/htr-mods
+backend:
+  name: github
+  repo: edward250404-eng/htr-mods
+  branch: main
+  base_url: https://api.netlify.com
+
+locale: ru
+site_url: /
+display_url: /
+media_folder: images/uploads
+public_folder: /images/uploads
+
+collections:
+  - name: shop
+    label: Магазин
+    files:
+      - name: products
+        label: Товары
+        file: data/products.json
+        fields:
+          - name: items
+            label: Товары
+            label_singular: товар
+            widget: list
+            summary: "{{fields.name}} — {{fields.price}}"
+            fields:
+              - { name: name, label: Название, widget: string }
+              - name: cat
+                label: Категория
+                widget: select
+                default: car
+                options:
+                  - { label: Машины, value: car }
+                  - { label: Мотоциклы, value: moto }
+                  - { label: Персонажи, value: ped }
+                  - { label: Карты, value: map }
+                  - { label: Наборы, value: pack }
+                  - { label: Другое, value: other }
+              - { name: price, label: Цена, widget: number, value_type: float, min: 0, default: 5 }
+              - name: tag
+                label: Метка
+                widget: select
+                required: false
+                default: ""
+                options:
+                  - { label: Без метки, value: "" }
+                  - { label: Новинка, value: new }
+                  - { label: Хит, value: hit }
+              - name: photos
+                label: Фото (первое — обложка)
+                widget: list
+                required: false
+                field: { name: photo, label: Фото, widget: image }
+              - { name: specs, label: "Особенности (Add-On, Тюнинг 20…)", widget: list, required: false }
+              - { name: size, label: Размер файла, widget: string, required: false }
+              - { name: desc, label: Описание, widget: text, required: false }
+              - { name: buyUrl, label: "Ссылка на оплату (Gumroad)", widget: string, required: false, hint: "Ссылка на этот товар в Gumroad. Пусто — покупка через корзину и Telegram." }
+      - name: settings
+        label: Настройки магазина
+        file: data/settings.json
+        fields:
+          - { name: name, label: Название магазина, widget: string }
+          - { name: tg, label: "Telegram (ник без @)", widget: string }
+          - { name: cur, label: Валюта, widget: select, options: ["$", "€", "₴", "₽"] }
+          - { name: heroTitle, label: Заголовок, widget: string }
+          - { name: heroAccent, label: Выделенная часть заголовка, widget: string }
+          - { name: heroText, label: Текст под заголовком, widget: text }
+          - { name: payNote, label: Про оплату, widget: text }

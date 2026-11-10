@@ -1,0 +1,26 @@
+HTR Mods — как запустить сайт с админкой
+
+1. GitHub
+   - Зарегистрируйся на github.com.
+   - New repository -> имя: htr-mods -> Create repository.
+   - Нажми "uploading an existing file" и перетащи ВСЁ СОДЕРЖИМОЕ этой папки
+     (index.html, shop.js, admin, data, images), не саму папку. Commit changes.
+
+2. Netlify
+   - app.netlify.com -> Add new project -> Import an existing project -> GitHub.
+   - Выбери htr-mods. Build command оставь пустым, Publish directory пустым. Deploy.
+   - Скопируй адрес сайта (вида что-то.netlify.app). В Project configuration можно сменить имя.
+
+3. Вход в админку (один раз)
+   - GitHub -> Settings -> Developer settings -> OAuth Apps -> New OAuth App.
+     Application name: HTR Mods
+     Homepage URL: адрес твоего сайта на Netlify
+     Authorization callback URL: https://api.netlify.com/auth/done
+   - Register application -> скопируй Client ID -> Generate a new client secret -> скопируй.
+   - Netlify -> твой проект -> Project configuration -> Access & security -> OAuth
+     -> Install a provider -> GitHub -> вставь Client ID и Secret -> Install.
+
+4. Пользуйся
+   - Открой адрес-сайта/admin -> Login with GitHub.
+   - Магазин -> Товары: добавляй, меняй, грузи фото. Потом Publish.
+   - Через 1 минуту изменения на сайте.

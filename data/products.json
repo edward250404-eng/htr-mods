@@ -1,0 +1,8 @@
+{
+  "items": [
+    {"name": "Karin Sultan RS Street", "cat": "car", "price": 7, "tag": "hit", "photos": [], "specs": ["Add-On", "Тюнинг 40+", "HQ салон"], "size": "84 МБ", "desc": "Пример товара. Уличный Sultan RS с полным набором тюнинга и детальным салоном.", "buyUrl": ""},
+    {"name": "Bati 801 Street Fighter", "cat": "moto", "price": 5, "tag": "new", "photos": [], "specs": ["Add-On", "Тюнинг 18"], "size": "38 МБ", "desc": "Пример товара. Нейкед-версия Bati 801 с новым выхлопом и подсветкой.", "buyUrl": ""},
+    {"name": "Супергерой «Молния»", "cat": "ped", "price": 4, "tag": "new", "photos": [], "specs": ["Addon Ped", "Menyoo", "Скины ×3"], "size": "22 МБ", "desc": "Пример товара. Персонаж-супергерой в трёх вариантах костюма.", "buyUrl": ""},
+    {"name": "Гонка героев: Небо", "cat": "map", "price": 3, "tag": "", "photos": [], "specs": ["Menyoo XML"], "size": "2 МБ", "desc": "Пример товара. Сплошной маршрут: мотоциклы, машины, лодки и вертолёты.", "buyUrl": ""}
+  ]
+}
