@@ -151,9 +151,9 @@ footer .wrap{display:flex;flex-direction:column;align-items:flex-start;gap:6px;p
 .herowrap{padding-block:48px 40px;display:flex;flex-direction:column;align-items:flex-start;gap:16px}
 .hero h1{font-family:var(--display);font-size:clamp(24px,6.2vw,68px);line-height:1.02;margin:0;white-space:nowrap;letter-spacing:.005em}
 .hero h1 span{color:var(--accent)}
-.hero .tagline{display:inline-flex;align-items:center;gap:10px;margin:0;font-family:var(--display);font-weight:600;font-size:clamp(18px,2.6vw,26px);color:#ffb35c;background:rgba(255,122,26,.12);border:1px solid rgba(255,122,26,.35);border-radius:99px;padding:8px 18px 8px 14px}
+.hero .tagline{text-transform:uppercase;letter-spacing:.04em;display:inline-flex;align-items:center;gap:10px;margin:0;font-family:var(--display);font-weight:600;font-size:clamp(18px,2.6vw,26px);color:#ffb35c;background:rgba(255,122,26,.12);border:1px solid rgba(255,122,26,.35);border-radius:99px;padding:8px 18px 8px 14px}
 .hero .tagline svg{flex:none;animation:tap 2.4s ease-in-out infinite}
-@keyframes tap{0%,70%,100%{transform:translate(0,0)}80%{transform:translate(2px,2px) scale(.9)}}
+@keyframes tap{0%,100%{transform:scale(1)}50%{transform:scale(1.15) rotate(-6deg)}}
 .ctarow{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:6px}
 .cta{padding:13px 22px;font-size:16px;box-shadow:0 8px 28px -8px rgba(242,182,50,.6);transition:transform .15s,box-shadow .15s}
 .cta:hover{transform:translateY(-2px);box-shadow:0 12px 32px -8px rgba(242,182,50,.75)}

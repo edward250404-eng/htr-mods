@@ -13,7 +13,7 @@ const T={
   orderNote:"Нажми «Написать в Telegram»: текст заказа скопируется сам, просто вставь его в чат с {tg}. В ответ пришлю реквизиты: PayPal, USDT или карта украинского банка.",copy:"Скопировать заказ",openTg:"Написать в Telegram",order:"Заказ",
   added:"Добавлено в корзину",removed:"Убрано из корзины",copied:"Заказ скопирован",selected:"Текст выделен, нажми Ctrl+C",
   cat:"Категория",size:"Размер",specs:"Особенности",game:"Игра",gameV:"GTA 5 (одиночная)",close:"Закрыть",prev:"Предыдущее фото",next:"Следующее фото",
-  hello:"Привет! Хочу купить:",copiedTg:"Заказ скопирован — вставь его в чат (Ctrl+V)",tagline:"Покупай в два клика",cta:"Смотреть моды",uaCards:"Карты Украины",loadErr:"Не удалось загрузить каталог. Обнови страницу.",
+  hello:"Привет! Хочу купить:",copiedTg:"Заказ скопирован — вставь его в чат (Ctrl+V)",tagline:"САМЫЕ СВЕЖИЕ МОДЫ",cta:"Смотреть моды",uaCards:"Карты Украины",loadErr:"Не удалось загрузить каталог. Обнови страницу.",
   heroTitle:"Моды для GTA 5",heroAccent:"от HTR",heroText:"Машины, мотоциклы и персонажи, собранные вручную в Blender. Каждый мод проверен в игре и ставится как Add-On, не заменяя стандартные модели.",payNote:"Оплата картой любой страны или PayPal. После оплаты файл приходит на почту автоматически."},
  en:{search:"Search mods…",cart:"Cart",all:"All",car:"Cars",moto:"Motorcycles",ped:"Characters",map:"Maps",pack:"Packs",other:"Other",
   mods:"mods",install:"install",world:"Worldwide",payment:"payment",found:"Found",sOrder:"Default order",sNew:"Newest first",sLo:"Price: low to high",sHi:"Price: high to low",
@@ -23,7 +23,7 @@ const T={
   orderNote:"Press “Message on Telegram”: your order text is copied automatically, just paste it into the chat with {tg}. I’ll reply with payment details: PayPal, USDT or a Ukrainian bank card.",copy:"Copy order",openTg:"Message on Telegram",order:"Order",
   added:"Added to cart",removed:"Removed from cart",copied:"Order copied",selected:"Text selected, press Ctrl+C",
   cat:"Category",size:"Size",specs:"Features",game:"Game",gameV:"GTA 5 (single player)",close:"Close",prev:"Previous photo",next:"Next photo",
-  hello:"Hi! I’d like to buy:",copiedTg:"Order copied — paste it into the chat (Ctrl+V)",tagline:"Buy in two clicks",cta:"Browse mods",uaCards:"Ukrainian cards",loadErr:"Couldn’t load the catalog. Please refresh the page.",
+  hello:"Hi! I’d like to buy:",copiedTg:"Order copied — paste it into the chat (Ctrl+V)",tagline:"THE FRESHEST MODS",cta:"Browse mods",uaCards:"Ukrainian cards",loadErr:"Couldn’t load the catalog. Please refresh the page.",
   heroTitle:"Mods for GTA 5",heroAccent:"by HTR",heroText:"Cars, motorcycles and characters hand-built in Blender. Every mod is tested in game and installs as an Add-On without replacing the stock models.",payNote:"Pay with a card from any country or with PayPal. The file arrives by email automatically after payment."},
  hi:{search:"मॉड खोजें…",cart:"कार्ट",all:"सभी",car:"कारें",moto:"मोटरसाइकिलें",ped:"किरदार",map:"मैप",pack:"पैक",other:"अन्य",
   mods:"मॉड",install:"इंस्टॉल",world:"पूरी दुनिया",payment:"भुगतान",found:"मिले",sOrder:"क्रम से",sNew:"पहले नए",sLo:"पहले सस्ते",sHi:"पहले महंगे",
@@ -33,7 +33,7 @@ const T={
   orderNote:"«Telegram पर लिखें» दबाएँ: ऑर्डर का टेक्स्ट अपने-आप कॉपी हो जाएगा, बस उसे {tg} के चैट में पेस्ट करें। जवाब में भुगतान की जानकारी भेजूँगा: PayPal, USDT या यूक्रेनी बैंक कार्ड।",copy:"ऑर्डर कॉपी करें",openTg:"Telegram पर लिखें",order:"ऑर्डर",
   added:"कार्ट में जोड़ा गया",removed:"कार्ट से हटाया गया",copied:"ऑर्डर कॉपी हो गया",selected:"टेक्स्ट चुना गया, Ctrl+C दबाएँ",
   cat:"श्रेणी",size:"साइज़",specs:"विशेषताएँ",game:"गेम",gameV:"GTA 5 (सिंगल-प्लेयर)",close:"बंद करें",prev:"पिछली फ़ोटो",next:"अगली फ़ोटो",
-  hello:"नमस्ते! मैं ये खरीदना चाहता हूँ:",copiedTg:"ऑर्डर कॉपी हो गया — चैट में पेस्ट करें (Ctrl+V)",tagline:"दो क्लिक में खरीदें",cta:"मॉड देखें",uaCards:"यूक्रेनी कार्ड",loadErr:"कैटलॉग लोड नहीं हुआ। पेज रीफ़्रेश करें।",
+  hello:"नमस्ते! मैं ये खरीदना चाहता हूँ:",copiedTg:"ऑर्डर कॉपी हो गया — चैट में पेस्ट करें (Ctrl+V)",tagline:"सबसे नए मॉड",cta:"मॉड देखें",uaCards:"यूक्रेनी कार्ड",loadErr:"कैटलॉग लोड नहीं हुआ। पेज रीफ़्रेश करें।",
   heroTitle:"GTA 5 के लिए मॉड",heroAccent:"HTR से",heroText:"Blender में हाथ से बनाई गई कारें, मोटरसाइकिलें और किरदार। हर मॉड गेम में जाँचा गया है और Add-On के रूप में इंस्टॉल होता है, मूल मॉडल नहीं बदलता।",payNote:"किसी भी देश के कार्ड या PayPal से भुगतान। भुगतान के बाद फ़ाइल अपने-आप ईमेल पर आ जाती है।"}
 };
 const LANGS=[["ru","RU","Русский"],["en","EN","English"],["hi","HI","हिन्दी"]];
@@ -146,9 +146,7 @@ function render(){
   <main>
    <section class="hero"><div class="wrap herowrap">
     <h1>${esc(st("heroTitle"))} <span>${esc(st("heroAccent"))}</span></h1>
-    <p class="tagline"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 9l5 12 1.8-5.2L21 14z"/><path d="M7.2 2.2L8 5.1M5.1 8H2.2M5.6 5.6L3.5 3.5M14 4.1l-1.4 2.1"/></svg>${esc(t("tagline"))}</p>
-    <div class="ctarow"><a class="btn pri cta" href="#catalog">${esc(t("cta"))} <span aria-hidden="true">↓</span></a>
-     <div class="pays"><span>PayPal</span><span>USDT</span><span>${esc(t("uaCards"))}</span></div></div>
+    <p class="tagline"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12 2c.6 3.2-1 5-2.6 6.8C7.8 10.6 6 12.6 6 15.5A6 6 0 0 0 18 15.5c0-2.4-1-4.3-2.4-5.6.2 1.6-.4 2.9-1.6 3.4.4-3.6-.6-8.4-2-11.3z"/></svg>${esc(t("tagline"))}</p>
    </div></section>
    <section class="wrap" id="catalog">
     <div class="cats" role="toolbar">${CATS.map(id=>{const n=id==="all"?ITEMS.length:ITEMS.filter(i=>i.cat===id).length;return n||id==="all"?`<button data-c="${id}" aria-pressed="${id===cat}">${esc(t(id))}<span class="c">${n}</span></button>`:""}).join("")}</div>
