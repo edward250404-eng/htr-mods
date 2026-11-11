@@ -115,6 +115,15 @@ function restoreSlides(){
 }
 document.addEventListener("scroll",e=>{const el=e.target;if(el.classList&&el.classList.contains("slides"))syncDots(el)},true);
 
+/* поиск: название, описание, особенности, категория на всех языках и скрытые ключевые слова */
+const norm=x=>String(x??"").toLowerCase().replace(/ё/g,"е");
+const hayCache={};
+function haystack(i){
+  if(hayCache[i.id])return hayCache[i.id];
+  const kw=Array.isArray(i.keywords)?i.keywords.join(" "):i.keywords;
+  const parts=[i.name,i.name_ru,i.name_en,i.name_hi,i.desc,i.desc_ru,i.desc_en,i.desc_hi,(i.specs||[]).join(" "),kw,T.ru[i.cat],T.en[i.cat],T.hi[i.cat]];
+  return hayCache[i.id]=norm(parts.filter(Boolean).join(" "));
+}
 /* ---------- Отрисовка ---------- */
 function card(i){
   const inCart=cart.includes(i.id),buy=safeUrl(i.buyUrl);
@@ -125,7 +134,8 @@ function card(i){
 }
 function render(){
   document.title=S.name;document.documentElement.lang=lang;
-  let list=ITEMS.filter(i=>(cat==="all"||i.cat===cat)&&[i.name,i.name_ru,i.name_en,i.name_hi,(i.specs||[]).join(" ")].join(" ").toLowerCase().includes(q));
+  const words=norm(q).split(/[\s,]+/).filter(Boolean);
+  let list=ITEMS.filter(i=>(cat==="all"||i.cat===cat)&&(!words.length||words.every(w=>haystack(i).includes(w))));
   list.sort((a,b)=>sort==="lo"?a.price-b.price:sort==="hi"?b.price-a.price:sort==="new"?b.order-a.order:a.order-b.order);
   const [n1,...rest]=S.name.split(" ");
   $("#root").innerHTML=`

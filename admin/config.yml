@@ -56,6 +56,7 @@ collections:
                 required: false
                 field: { name: photo, label: Фото, widget: image }
               - { name: specs, label: "Особенности (Add-On, Тюнинг 20…)", widget: list, required: false }
+              - { name: keywords, label: "Ключевые слова для поиска (покупатель их не видит)", widget: text, required: false, hint: "Через запятую или пробел, на любых языках: акула, shark, байк, мотик, мотоцикл, детский, rgb, радуга" }
               - { name: size, label: Размер файла, widget: string, required: false }
               - { name: desc, label: "Описание (основное)", widget: text, required: false }
               - { name: desc_ru, label: "Описание — русский (необязательно)", widget: text, required: false }
