@@ -107,7 +107,10 @@ function carousel(i,key,big){
    <div class="dots" data-dots="${key}">${ph.map((_,k)=>`<span${k===0?' class="on"':""}></span>`).join("")}</div>`:""}
   </div>`;
 }
-const tagHTML=i=>i.tag==="new"||i.tag==="hit"?`<span class="tag ${i.tag}">${esc(t(i.tag))}</span>`:"";
+const onSale=i=>Number(i.oldPrice)>Number(i.price);
+const pct=i=>Math.round((1-Number(i.price)/Number(i.oldPrice))*100);
+const tagHTML=i=>`${onSale(i)?`<span class="sale">−${pct(i)}%</span>`:""}${i.tag==="new"||i.tag==="hit"?`<span class="tag ${i.tag}">${esc(t(i.tag))}</span>`:""}`;
+const priceHTML=i=>`<span class="price${onSale(i)?" on":""}">${onSale(i)?`<s>${money(i.oldPrice)}</s>`:""}${money(i.price)}</span>`;
 function goSlide(key,dir){
   const el=document.querySelector(`.slides[data-key="${key}"]`);if(!el)return;
   const n=el.children.length,cur=Math.round(el.scrollLeft/el.clientWidth);
@@ -156,7 +159,7 @@ function card(i){
   const btn=buy?`<a class="btn pri add" href="${esc(buy)}" target="_blank" rel="noopener">${esc(t("buy"))}</a>`:`<button class="btn add ${inCart?"in":""}" data-add="${i.id}">${esc(t(inCart?"inCart":"add"))}</button>`;
   return `<article class="card">${carousel(i,"c:"+i.id,false)}
   <div class="body"><h3>${esc(loc(i,"name"))}</h3><div class="specs">${(i.specs||[]).map(s=>`<span>${esc(s)}</span>`).join("")}</div>
-  <div class="foot"><span class="price">${money(i.price)}</span>${btn}</div></div></article>`;
+  <div class="foot">${priceHTML(i)}${btn}</div></div></article>`;
 }
 function render(){
   document.title=S.name;document.documentElement.lang=lang;
@@ -200,7 +203,7 @@ function cartHTML(){
   const its=cart.map(id=>ITEMS.find(i=>i.id===id)).filter(Boolean),total=its.reduce((s,i)=>s+Number(i.price||0),0);
   const txt=`${t("hello")}\n\n${t("order")} ${S.name}\n`+its.map(i=>`• ${loc(i,"name")} — ${money(i.price)}`).join("\n")+`\n${t("total")}: ${money(total)}`;
   return `<div class="shade" data-close></div><aside class="drawer" aria-label="${esc(t("cart"))}"><div class="dh"><h3>${esc(t("cart"))}</h3><button class="x" data-close aria-label="${esc(t("close"))}">✕</button></div>
-  <div class="items">${its.length?its.map(i=>`<div class="row"><div class="sw" style="${bg(i.color)}">${i.photos[0]?`<img src="${esc(i.photos[0])}" alt="">`:""}</div><div class="t"><div>${esc(loc(i,"name"))}</div>${i.size?`<small>${esc(i.size)}</small>`:""}</div><span class="p">${money(i.price)}</span><button class="rm" data-add="${i.id}" aria-label="✕">✕</button></div>`).join(""):`<p class="note" style="padding:24px 0;text-align:center">${esc(t("cartEmpty"))}</p>`}</div>
+  <div class="items">${its.length?its.map(i=>`<div class="row"><div class="sw" style="${bg(i.color)}">${i.photos[0]?`<img src="${esc(i.photos[0])}" alt="">`:""}</div><div class="t"><div>${esc(loc(i,"name"))}</div>${i.size?`<small>${esc(i.size)}</small>`:""}</div><span class="p">${onSale(i)?`<s>${money(i.oldPrice)}</s> `:""}${money(i.price)}</span><button class="rm" data-add="${i.id}" aria-label="✕">✕</button></div>`).join(""):`<p class="note" style="padding:24px 0;text-align:center">${esc(t("cartEmpty"))}</p>`}</div>
   <div class="df"><div class="total"><span>${esc(t("total"))}</span><span>${money(total)}</span></div>
   ${its.length?`<div class="cartpay"><span class="acclbl">${esc(t("payWith"))}</span>${payBadges()}</div><p class="note">${esc(t("orderNote")).replace("{tg}",`<span class="mono">@${esc(tg())}</span>`)}</p><div class="order" id="orderText">${esc(txt)}</div>
   <a class="btn pri" id="tgLink" href="https://t.me/${encodeURIComponent(tg())}?text=${encodeURIComponent(txt)}" target="_blank" rel="noopener">${esc(t("openTg"))}</a><button class="btn" id="copy">${esc(t("copy"))}</button>`:""}</div></aside>`;
@@ -213,7 +216,7 @@ function itemHTML(i){
    <div class="mbody"><div style="display:flex;justify-content:space-between;gap:12px;align-items:start"><h3>${esc(loc(i,"name"))}</h3><button class="x" data-close aria-label="${esc(t("close"))}">✕</button></div>
    ${loc(i,"desc")?`<p>${esc(loc(i,"desc"))}</p>`:""}
    <dl class="kv"><dt>${esc(t("cat"))}</dt><dd>${esc(t(i.cat))}</dd>${i.size?`<dt>${esc(t("size"))}</dt><dd>${esc(i.size)}</dd>`:""}${(i.specs||[]).length?`<dt>${esc(t("specs"))}</dt><dd>${esc(i.specs.join(" · "))}</dd>`:""}<dt>${esc(t("game"))}</dt><dd>${esc(t("gameV"))}</dd></dl>
-   <div class="foot"><span class="price">${money(i.price)}</span><div style="display:flex;gap:8px;flex-wrap:wrap">${buy?`<a class="btn pri" href="${esc(buy)}" target="_blank" rel="noopener">${esc(t("buy"))}</a>`:""}<button class="btn ${inCart?"in pri":""}" data-add="${i.id}">${esc(t(inCart?"inCart":"add"))}</button></div></div>
+   <div class="foot">${priceHTML(i)}<div style="display:flex;gap:8px;flex-wrap:wrap">${buy?`<a class="btn pri" href="${esc(buy)}" target="_blank" rel="noopener">${esc(t("buy"))}</a>`:""}<button class="btn ${inCart?"in pri":""}" data-add="${i.id}">${esc(t(inCart?"inCart":"add"))}</button></div></div>
    </div></div></div>`;
 }
 function toast(m){let el=$("#toast");if(!el){el=document.createElement("div");el.id="toast";el.className="toast";document.body.appendChild(el)}el.textContent=m;el.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>el.hidden=true,2400)}

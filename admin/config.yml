@@ -41,6 +41,7 @@ collections:
                   - { label: Наборы, value: pack }
                   - { label: Другое, value: other }
               - { name: price, label: Цена, widget: number, value_type: float, min: 0, default: 5 }
+              - { name: oldPrice, label: "Старая цена (для акции, необязательно)", widget: number, value_type: float, min: 0, required: false, hint: "Впиши сюда прежнюю цену, а в «Цена» — новую. Старая будет зачёркнута, на фото появится скидка −%. Чтобы убрать акцию, очисти поле." }
               - name: tag
                 label: Метка
                 widget: select
