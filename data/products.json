@@ -31,6 +31,18 @@
         "/images/uploads/bb5.png"
       ],
       "desc": "Mack from Disney & Pixar\n🌈 - (RGB colors mean that it can be recolored to any color in the game)\n✔ - Add-On\n☀ - For Kids Fun Videos\n"
+    },
+    {
+      "cat": "car",
+      "price": 15,
+      "tag": "new",
+      "name": "MISS FRITTER 🌈",
+      "photos": [
+        "/images/uploads/xx2.png",
+        "/images/uploads/xx1.png",
+        "/images/uploads/xx3.png"
+      ],
+      "desc": "Mack from Disney & Pixar\n🌈 - (RGB colors mean that it can be recolored to any color in the game)\n✔ - Add-On\n☀ - For Kids Fun Videos"
     }
   ]
 }
