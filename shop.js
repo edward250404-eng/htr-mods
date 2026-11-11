@@ -73,7 +73,7 @@ try{
 }catch(e){$("#root").innerHTML='<p style="padding:40px;text-align:center">'+esc(t("loadErr"))+'</p>';return}
 
 /* ---------- Google Analytics (включается, если в админке указан ID вида G-XXXXXXX) ---------- */
-const GA=String(S.gaId||"G-89GFTE8JJG").trim().toUpperCase();
+const GA=String(S.gaId||"G-5XT8HXV36Z").trim().toUpperCase();
 window.dataLayer=window.dataLayer||[];
 function gtag(){dataLayer.push(arguments)}
 const track=(name,params)=>{try{if(GA)gtag("event",name,params||{})}catch(e){}};
