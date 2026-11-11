@@ -69,6 +69,7 @@ collections:
         fields:
           - { name: name, label: Название магазина, widget: string }
           - { name: tg, label: "Telegram (ник без @)", widget: string }
+          - { name: gaId, label: "Google Analytics ID (G-XXXXXXX)", widget: string, required: false, hint: "Вставь сюда идентификатор потока из Google Analytics, чтобы видеть посетителей" }
           - { name: cur, label: Валюта, widget: select, options: ["$", "€", "₴", "₽"] }
           - { name: heroTitle, label: Заголовок, widget: string }
           - { name: heroAccent, label: Выделенная часть заголовка, widget: string }

@@ -72,6 +72,17 @@ try{
   ITEMS=(p.items||[]).map((it,k)=>{const c=ICONS[it.cat]?it.cat:"other";return Object.assign({specs:[]},it,{cat:c,order:k,id:"i"+k,color:COLORS[c],photos:(it.photos||[]).map(x=>typeof x==="string"?x:x&&x.photo).filter(Boolean)})});
 }catch(e){$("#root").innerHTML='<p style="padding:40px;text-align:center">'+esc(t("loadErr"))+'</p>';return}
 
+/* ---------- Google Analytics (включается, если в админке указан ID вида G-XXXXXXX) ---------- */
+const GA=String(S.gaId||"").trim().toUpperCase();
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments)}
+const track=(name,params)=>{try{if(GA)gtag("event",name,params||{})}catch(e){}};
+if(/^G-[A-Z0-9]{4,}$/.test(GA)){
+  const sc=document.createElement("script");sc.async=true;sc.src="https://www.googletagmanager.com/gtag/js?id="+GA;document.head.appendChild(sc);
+  gtag("js",new Date());gtag("config",GA);
+}
+const itemParams=i=>({currency:S.cur==="$"?"USD":S.cur==="€"?"EUR":S.cur==="₴"?"UAH":"RUB",value:Number(i.price)||0,items:[{item_id:i.id,item_name:i.name,item_category:i.cat,price:Number(i.price)||0}]});
+
 /* текст из админки: сначала поле на языке посетителя (name_en), потом общее поле */
 const loc=(o,k)=>{const v=o[k+"_"+lang];return v&&String(v).trim()?v:o[k]};
 /* тексты магазина: если в настройках не задан перевод и русский текст не меняли — берём встроенный перевод */
@@ -213,15 +224,15 @@ document.addEventListener("click",ev=>{
   if(ev.target.classList&&ev.target.classList.contains("modal")){openId=null;renderOverlay();return}
   const el=ev.target.closest("[data-lang],[data-nav],[data-c],[data-add],[data-open],[data-close],[data-ph],#openCart,#copy,#tgLink");if(!el)return;
   const d=el.dataset;
-  if(d.lang){lang=d.lang;try{localStorage.setItem("htr-lang",lang)}catch(x){}render();return}
+  if(d.lang){lang=d.lang;track("select_language",{language:lang});try{localStorage.setItem("htr-lang",lang)}catch(x){}render();return}
   if(d.nav){ev.preventDefault();goSlide(d.key,+d.nav)}
   else if(d.c){cat=d.c;render()}
-  else if(d.add){cart.includes(d.add)?(cart=cart.filter(x=>x!==d.add),toast(t("removed"))):(cart.push(d.add),toast(t("added")));saveCart();render()}
-  else if(d.open){openId=d.open;photoIdx=+d.idx||0;renderOverlay()}
+  else if(d.add){cart.includes(d.add)?(cart=cart.filter(x=>x!==d.add),toast(t("removed"))):(cart.push(d.add),toast(t("added")),track("add_to_cart",itemParams(ITEMS.find(x=>x.id===d.add))));saveCart();render()}
+  else if(d.open){openId=d.open;photoIdx=+d.idx||0;renderOverlay();track("view_item",itemParams(ITEMS.find(x=>x.id===d.open)))}
   else if(d.ph!==undefined){const s=document.querySelector(".mbox .slides");if(s)s.scrollTo({left:+d.ph*s.clientWidth,behavior:"smooth"})}
   else if("close" in d){openId=null;renderOverlay()}
   else if(el.id==="openCart"){openId="cart";renderOverlay()}
-  else if(el.id==="tgLink"){const o=$("#orderText");if(o&&navigator.clipboard)navigator.clipboard.writeText(o.textContent).then(()=>toast(t("copiedTg"))).catch(()=>{})}
+  else if(el.id==="tgLink"){{const its=cart.map(id=>ITEMS.find(i=>i.id===id)).filter(Boolean);track("begin_checkout",{currency:"USD",value:its.reduce((a,i)=>a+Number(i.price||0),0),items:its.map(i=>({item_id:i.id,item_name:i.name,price:Number(i.price)||0}))})}const o=$("#orderText");if(o&&navigator.clipboard)navigator.clipboard.writeText(o.textContent).then(()=>toast(t("copiedTg"))).catch(()=>{})}
   else if(el.id==="copy"){const o=$("#orderText");navigator.clipboard.writeText(o.textContent).then(()=>toast(t("copied"))).catch(()=>{const r=document.createRange();r.selectNodeContents(o);const s=getSelection();s.removeAllRanges();s.addRange(r);toast(t("selected"))})}
 });
 /* мышью тоже можно тянуть фото */
