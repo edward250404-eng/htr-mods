@@ -3,8 +3,7 @@ backend:
   name: github
   repo: edward250404-eng/htr-mods
   branch: main
-  base_url: https://api.netlify.com
-  site_domain: htr-gta5mods.netlify.app
+  auth_endpoint: auth
 
 locale: ru
 site_url: /
