@@ -13,7 +13,7 @@ const T={
   orderNote:"Скопируй заказ и отправь в Telegram {tg}. Пришлю ссылку на оплату любой картой мира.",copy:"Скопировать заказ",openTg:"Открыть Telegram",order:"Заказ",
   added:"Добавлено в корзину",removed:"Убрано из корзины",copied:"Заказ скопирован",selected:"Текст выделен, нажми Ctrl+C",
   cat:"Категория",size:"Размер",specs:"Особенности",game:"Игра",gameV:"GTA 5 (одиночная)",close:"Закрыть",prev:"Предыдущее фото",next:"Следующее фото",
-  loadErr:"Не удалось загрузить каталог. Обнови страницу.",
+  tagline:"Покупай в два клика",cta:"Смотреть моды",uaCards:"Карты Украины",loadErr:"Не удалось загрузить каталог. Обнови страницу.",
   heroTitle:"Моды для GTA 5",heroAccent:"от HTR",heroText:"Машины, мотоциклы и персонажи, собранные вручную в Blender. Каждый мод проверен в игре и ставится как Add-On, не заменяя стандартные модели.",payNote:"Оплата картой любой страны или PayPal. После оплаты файл приходит на почту автоматически."},
  en:{search:"Search mods…",cart:"Cart",all:"All",car:"Cars",moto:"Motorcycles",ped:"Characters",map:"Maps",pack:"Packs",other:"Other",
   mods:"mods",install:"install",world:"Worldwide",payment:"payment",found:"Found",sOrder:"Default order",sNew:"Newest first",sLo:"Price: low to high",sHi:"Price: high to low",
@@ -23,7 +23,7 @@ const T={
   orderNote:"Copy the order and send it on Telegram to {tg}. I’ll send you a payment link for any card in the world.",copy:"Copy order",openTg:"Open Telegram",order:"Order",
   added:"Added to cart",removed:"Removed from cart",copied:"Order copied",selected:"Text selected, press Ctrl+C",
   cat:"Category",size:"Size",specs:"Features",game:"Game",gameV:"GTA 5 (single player)",close:"Close",prev:"Previous photo",next:"Next photo",
-  loadErr:"Couldn’t load the catalog. Please refresh the page.",
+  tagline:"Buy in two clicks",cta:"Browse mods",uaCards:"Ukrainian cards",loadErr:"Couldn’t load the catalog. Please refresh the page.",
   heroTitle:"Mods for GTA 5",heroAccent:"by HTR",heroText:"Cars, motorcycles and characters hand-built in Blender. Every mod is tested in game and installs as an Add-On without replacing the stock models.",payNote:"Pay with a card from any country or with PayPal. The file arrives by email automatically after payment."},
  hi:{search:"मॉड खोजें…",cart:"कार्ट",all:"सभी",car:"कारें",moto:"मोटरसाइकिलें",ped:"किरदार",map:"मैप",pack:"पैक",other:"अन्य",
   mods:"मॉड",install:"इंस्टॉल",world:"पूरी दुनिया",payment:"भुगतान",found:"मिले",sOrder:"क्रम से",sNew:"पहले नए",sLo:"पहले सस्ते",sHi:"पहले महंगे",
@@ -33,7 +33,7 @@ const T={
   orderNote:"ऑर्डर कॉपी करके Telegram पर {tg} को भेजें। मैं किसी भी देश के कार्ड से भुगतान का लिंक भेजूँगा।",copy:"ऑर्डर कॉपी करें",openTg:"Telegram खोलें",order:"ऑर्डर",
   added:"कार्ट में जोड़ा गया",removed:"कार्ट से हटाया गया",copied:"ऑर्डर कॉपी हो गया",selected:"टेक्स्ट चुना गया, Ctrl+C दबाएँ",
   cat:"श्रेणी",size:"साइज़",specs:"विशेषताएँ",game:"गेम",gameV:"GTA 5 (सिंगल-प्लेयर)",close:"बंद करें",prev:"पिछली फ़ोटो",next:"अगली फ़ोटो",
-  loadErr:"कैटलॉग लोड नहीं हुआ। पेज रीफ़्रेश करें।",
+  tagline:"दो क्लिक में खरीदें",cta:"मॉड देखें",uaCards:"यूक्रेनी कार्ड",loadErr:"कैटलॉग लोड नहीं हुआ। पेज रीफ़्रेश करें।",
   heroTitle:"GTA 5 के लिए मॉड",heroAccent:"HTR से",heroText:"Blender में हाथ से बनाई गई कारें, मोटरसाइकिलें और किरदार। हर मॉड गेम में जाँचा गया है और Add-On के रूप में इंस्टॉल होता है, मूल मॉडल नहीं बदलता।",payNote:"किसी भी देश के कार्ड या PayPal से भुगतान। भुगतान के बाद फ़ाइल अपने-आप ईमेल पर आ जाती है।"}
 };
 const LANGS=[["ru","RU","Русский"],["en","EN","English"],["hi","HI","हिन्दी"]];
@@ -129,24 +129,23 @@ function render(){
   list.sort((a,b)=>sort==="lo"?a.price-b.price:sort==="hi"?b.price-a.price:sort==="new"?b.order-a.order:a.order-b.order);
   const [n1,...rest]=S.name.split(" ");
   $("#root").innerHTML=`
-  <header><div class="wrap bar"><div class="logo"><b>${esc(n1)}</b>${esc(rest.join(" "))}</div>
+  <header><div class="wrap bar"><a class="logo" href="/" aria-label="${esc(S.name)}"><b>${esc(n1)}</b><span class="rest">${esc(rest.join(" "))}</span></a>
    <div class="search"><input id="q" type="search" placeholder="${esc(t("search"))}" aria-label="${esc(t("search"))}" value="${esc(q)}"></div>
    <select id="lang" class="langsel" aria-label="Language">${LANGS.map(([c,s,n])=>`<option value="${c}" title="${n}" ${c===lang?"selected":""}>${s}</option>`).join("")}</select>
    <button class="btn pri" id="openCart" aria-label="${esc(t("cart"))}"><span class="lbl">${esc(t("cart"))}</span><span class="cnt">${cart.length}</span></button></div></header>
   <main>
-   <section class="wrap hero"><div><h1>${esc(st("heroTitle"))} <span>${esc(st("heroAccent"))}</span></h1><p>${esc(st("heroText"))}</p></div>
-    <div class="stats"><div><strong>${ITEMS.length}</strong><small>${esc(t("mods"))}</small></div><div><strong>Add-On</strong><small>${esc(t("install"))}</small></div><div><strong>${esc(t("world"))}</strong><small>${esc(t("payment"))}</small></div></div></section>
-   <section class="wrap">
+   <section class="hero"><div class="wrap herowrap">
+    <h1>${esc(st("heroTitle"))} <span>${esc(st("heroAccent"))}</span></h1>
+    <p class="tagline"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 9l5 12 1.8-5.2L21 14z"/><path d="M7.2 2.2L8 5.1M5.1 8H2.2M5.6 5.6L3.5 3.5M14 4.1l-1.4 2.1"/></svg>${esc(t("tagline"))}</p>
+    <div class="ctarow"><a class="btn pri cta" href="#catalog">${esc(t("cta"))} <span aria-hidden="true">↓</span></a>
+     <div class="pays"><span>PayPal</span><span>USDT</span><span>${esc(t("uaCards"))}</span></div></div>
+   </div></section>
+   <section class="wrap" id="catalog">
     <div class="cats" role="toolbar">${CATS.map(id=>{const n=id==="all"?ITEMS.length:ITEMS.filter(i=>i.cat===id).length;return n||id==="all"?`<button data-c="${id}" aria-pressed="${id===cat}">${esc(t(id))}<span class="c">${n}</span></button>`:""}).join("")}</div>
     <div class="tools"><span class="found">${esc(t("found"))}: ${list.length}</span>
      <select id="sort"><option value="order">${esc(t("sOrder"))}</option><option value="new">${esc(t("sNew"))}</option><option value="lo">${esc(t("sLo"))}</option><option value="hi">${esc(t("sHi"))}</option></select></div>
     <div class="grid">${list.length?list.map(card).join(""):`<div class="empty">${esc(t("empty"))}</div>`}</div>
    </section>
-   <section class="wrap how"><h2>${esc(t("how"))}</h2><div class="steps">
-    <div><b>${esc(t("step"))} 1</b><h4>${esc(t("h1"))}</h4><p>${esc(t("p1"))}</p></div>
-    <div><b>${esc(t("step"))} 2</b><h4>${esc(t("h2"))}</h4><p>${esc(st("payNote"))}</p></div>
-    <div><b>${esc(t("step"))} 3</b><h4>${esc(t("h3"))}</h4><p>${esc(t("p3"))}</p></div>
-   </div></section>
   </main>
   <footer><div class="wrap"><span>© ${new Date().getFullYear()} ${esc(S.name)}. ${esc(t("foot"))}</span><span>Telegram: <a class="mono" href="https://t.me/${encodeURIComponent(tg())}" target="_blank" rel="noopener">@${esc(tg())}</a></span></div></footer>`;
   $("#sort").value=sort;
