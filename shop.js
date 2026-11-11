@@ -2,8 +2,59 @@
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const safeUrl=u=>/^https:\/\//i.test(u||"")?u:"";
-const CATS=[["all","Все"],["car","Машины"],["moto","Мотоциклы"],["ped","Персонажи"],["map","Карты"],["pack","Наборы"],["other","Другое"]];
-const PRE={car:"V",moto:"M",ped:"P",map:"MAP",pack:"PACK",other:"X"};
+
+/* ---------- Языки ---------- */
+const T={
+ ru:{search:"Найти мод…",cart:"Корзина",all:"Все",car:"Машины",moto:"Мотоциклы",ped:"Персонажи",map:"Карты",pack:"Наборы",other:"Другое",
+  mods:"модов",install:"установка",world:"Весь мир",payment:"оплата",found:"Найдено",sOrder:"По порядку",sNew:"Сначала новые",sLo:"Сначала дешёвые",sHi:"Сначала дорогие",
+  empty:"Ничего не нашлось. Попробуй другое название.",how:"Как купить",step:"Шаг",h1:"Выбери мод",p1:"Нажми «Купить» или собери несколько модов в корзину.",h2:"Оплати",h3:"Установи",
+  p3:"В архиве мод и инструкция: Add-On через dlclist или Addon Peds. Вопросы пиши в Telegram.",foot:"Моды для одиночной игры GTA 5.",
+  buy:"Купить",add:"В корзину",inCart:"В корзине",new:"Новинка",hit:"Хит",photos:"фото",cartEmpty:"Корзина пустая. Добавь моды из каталога.",total:"Итого",
+  orderNote:"Скопируй заказ и отправь в Telegram {tg}. Пришлю ссылку на оплату любой картой мира.",copy:"Скопировать заказ",openTg:"Открыть Telegram",order:"Заказ",
+  added:"Добавлено в корзину",removed:"Убрано из корзины",copied:"Заказ скопирован",selected:"Текст выделен, нажми Ctrl+C",
+  cat:"Категория",size:"Размер",specs:"Особенности",game:"Игра",gameV:"GTA 5 (одиночная)",close:"Закрыть",prev:"Предыдущее фото",next:"Следующее фото",
+  loadErr:"Не удалось загрузить каталог. Обнови страницу.",
+  heroTitle:"Моды для GTA 5",heroAccent:"от HTR",heroText:"Машины, мотоциклы и персонажи, собранные вручную в Blender. Каждый мод проверен в игре и ставится как Add-On, не заменяя стандартные модели.",payNote:"Оплата картой любой страны или PayPal. После оплаты файл приходит на почту автоматически."},
+ en:{search:"Search mods…",cart:"Cart",all:"All",car:"Cars",moto:"Motorcycles",ped:"Characters",map:"Maps",pack:"Packs",other:"Other",
+  mods:"mods",install:"install",world:"Worldwide",payment:"payment",found:"Found",sOrder:"Default order",sNew:"Newest first",sLo:"Price: low to high",sHi:"Price: high to low",
+  empty:"Nothing found. Try another name.",how:"How to buy",step:"Step",h1:"Pick a mod",p1:"Press “Buy” or add several mods to the cart.",h2:"Pay",h3:"Install",
+  p3:"The archive contains the mod and a guide: Add-On via dlclist or Addon Peds. Questions? Write on Telegram.",foot:"Mods for GTA 5 single player.",
+  buy:"Buy",add:"Add to cart",inCart:"In cart",new:"New",hit:"Hit",photos:"photos",cartEmpty:"Your cart is empty. Add mods from the catalog.",total:"Total",
+  orderNote:"Copy the order and send it on Telegram to {tg}. I’ll send you a payment link for any card in the world.",copy:"Copy order",openTg:"Open Telegram",order:"Order",
+  added:"Added to cart",removed:"Removed from cart",copied:"Order copied",selected:"Text selected, press Ctrl+C",
+  cat:"Category",size:"Size",specs:"Features",game:"Game",gameV:"GTA 5 (single player)",close:"Close",prev:"Previous photo",next:"Next photo",
+  loadErr:"Couldn’t load the catalog. Please refresh the page.",
+  heroTitle:"Mods for GTA 5",heroAccent:"by HTR",heroText:"Cars, motorcycles and characters hand-built in Blender. Every mod is tested in game and installs as an Add-On without replacing the stock models.",payNote:"Pay with a card from any country or with PayPal. The file arrives by email automatically after payment."},
+ hi:{search:"मॉड खोजें…",cart:"कार्ट",all:"सभी",car:"कारें",moto:"मोटरसाइकिलें",ped:"किरदार",map:"मैप",pack:"पैक",other:"अन्य",
+  mods:"मॉड",install:"इंस्टॉल",world:"पूरी दुनिया",payment:"भुगतान",found:"मिले",sOrder:"क्रम से",sNew:"पहले नए",sLo:"पहले सस्ते",sHi:"पहले महंगे",
+  empty:"कुछ नहीं मिला। कोई दूसरा नाम आज़माएँ।",how:"कैसे खरीदें",step:"चरण",h1:"मॉड चुनें",p1:"«खरीदें» दबाएँ या कई मॉड कार्ट में जोड़ें।",h2:"भुगतान करें",h3:"इंस्टॉल करें",
+  p3:"आर्काइव में मॉड और निर्देश हैं: dlclist या Addon Peds से Add-On। कोई सवाल हो तो Telegram पर लिखें।",foot:"GTA 5 सिंगल-प्लेयर के लिए मॉड।",
+  buy:"खरीदें",add:"कार्ट में डालें",inCart:"कार्ट में है",new:"नया",hit:"हिट",photos:"फ़ोटो",cartEmpty:"कार्ट खाली है। कैटलॉग से मॉड जोड़ें।",total:"कुल",
+  orderNote:"ऑर्डर कॉपी करके Telegram पर {tg} को भेजें। मैं किसी भी देश के कार्ड से भुगतान का लिंक भेजूँगा।",copy:"ऑर्डर कॉपी करें",openTg:"Telegram खोलें",order:"ऑर्डर",
+  added:"कार्ट में जोड़ा गया",removed:"कार्ट से हटाया गया",copied:"ऑर्डर कॉपी हो गया",selected:"टेक्स्ट चुना गया, Ctrl+C दबाएँ",
+  cat:"श्रेणी",size:"साइज़",specs:"विशेषताएँ",game:"गेम",gameV:"GTA 5 (सिंगल-प्लेयर)",close:"बंद करें",prev:"पिछली फ़ोटो",next:"अगली फ़ोटो",
+  loadErr:"कैटलॉग लोड नहीं हुआ। पेज रीफ़्रेश करें।",
+  heroTitle:"GTA 5 के लिए मॉड",heroAccent:"HTR से",heroText:"Blender में हाथ से बनाई गई कारें, मोटरसाइकिलें और किरदार। हर मॉड गेम में जाँचा गया है और Add-On के रूप में इंस्टॉल होता है, मूल मॉडल नहीं बदलता।",payNote:"किसी भी देश के कार्ड या PayPal से भुगतान। भुगतान के बाद फ़ाइल अपने-आप ईमेल पर आ जाती है।"}
+};
+const LANGS=[["ru","RU","Русский"],["en","EN","English"],["hi","HI","हिन्दी"]];
+function detectLang(){
+  try{const s=localStorage.getItem("htr-lang");if(T[s])return s}catch(e){}
+  let tz="";try{tz=Intl.DateTimeFormat().resolvedOptions().timeZone||""}catch(e){}
+  if(/^Asia\/(Kolkata|Calcutta)$/.test(tz))return "hi";
+  const langs=(navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||""]).map(l=>String(l).toLowerCase().split("-")[0]);
+  for(const l of langs){
+    if(["ru","uk","be","kk","ky","uz","tg","tk","az","hy","ka"].includes(l))return "ru";
+    if(["hi","mr","bn","ta","te","gu","pa","kn","ml","or","as","ur"].includes(l))return "hi";
+    if(l==="en"&&langs[0]===l)return "en";
+  }
+  if(/^(Europe\/(Moscow|Kiev|Kyiv|Minsk|Simferopol|Volgograd|Kirov|Astrakhan|Saratov|Ulyanovsk|Samara|Kaliningrad|Chisinau)|Asia\/(Yekaterinburg|Omsk|Novosibirsk|Barnaul|Tomsk|Novokuznetsk|Krasnoyarsk|Irkutsk|Chita|Yakutsk|Khandyga|Vladivostok|Ust-Nera|Magadan|Sakhalin|Srednekolymsk|Kamchatka|Anadyr|Almaty|Qostanay|Aqtobe|Aqtau|Atyrau|Oral|Qyzylorda|Bishkek|Tashkent|Samarkand|Dushanbe|Ashgabat|Baku|Yerevan|Tbilisi))$/.test(tz))return "ru";
+  return "en";
+}
+let lang=detectLang();
+const t=k=>(T[lang]&&T[lang][k])??T.en[k]??k;
+
+/* ---------- Данные ---------- */
+const CATS=["all","car","moto","ped","map","pack","other"];
 const COLORS={car:"#2f5d8a",moto:"#b35a1f",ped:"#c9a227",map:"#2f6a8a",pack:"#6b3f8a",other:"#4f6d7a"};
 const ICONS={
  car:'<svg viewBox="0 0 120 60" fill="none" stroke="rgba(255,255,255,.85)" stroke-width="3" stroke-linejoin="round"><path d="M8 40v-8l14-4 14-12h34l18 12 20 4v8"/><path d="M8 40h12M40 40h40M100 40h12"/><circle cx="30" cy="42" r="9"/><circle cx="90" cy="42" r="9"/><path d="M40 28h50"/></svg>',
@@ -14,98 +65,153 @@ const ICONS={
 };
 ICONS.other=ICONS.pack;
 
-let S={name:"HTR Mods",tg:"",cur:"$",heroTitle:"",heroAccent:"",heroText:"",payNote:""},ITEMS=[];
+let S={name:"HTR Mods",tg:"",cur:"$"},ITEMS=[];
 try{
   const [s,p]=await Promise.all([fetch("/data/settings.json",{cache:"no-cache"}).then(r=>r.json()),fetch("/data/products.json",{cache:"no-cache"}).then(r=>r.json())]);
   S=Object.assign(S,s);
-  const cnt={};
-  ITEMS=(p.items||[]).map((it,k)=>{const c=it.cat||"other";cnt[c]=(cnt[c]||0)+1;return Object.assign({specs:[],photos:[]},it,{cat:c,order:k,id:(PRE[c]||"X")+"-"+String(cnt[c]).padStart(3,"0"),color:COLORS[c]||COLORS.other,photos:(it.photos||[]).map(x=>typeof x==="string"?x:x&&x.photo).filter(Boolean)})});
-}catch(e){$("#root").innerHTML='<p style="padding:40px;text-align:center">Не удалось загрузить каталог. Обнови страницу.</p>';return}
+  ITEMS=(p.items||[]).map((it,k)=>{const c=ICONS[it.cat]?it.cat:"other";return Object.assign({specs:[]},it,{cat:c,order:k,id:"i"+k,color:COLORS[c],photos:(it.photos||[]).map(x=>typeof x==="string"?x:x&&x.photo).filter(Boolean)})});
+}catch(e){$("#root").innerHTML='<p style="padding:40px;text-align:center">'+esc(t("loadErr"))+'</p>';return}
+
+/* текст из админки: сначала поле на языке посетителя (name_en), потом общее поле */
+const loc=(o,k)=>{const v=o[k+"_"+lang];return v&&String(v).trim()?v:o[k]};
+/* тексты магазина: если в настройках не задан перевод и русский текст не меняли — берём встроенный перевод */
+const st=k=>{const v=S[k+"_"+lang];if(v&&String(v).trim())return v;if(lang==="ru")return S[k]??T.ru[k];return (!S[k]||S[k]===T.ru[k])?T[lang][k]:S[k]};
 
 const money=n=>{const v=Number(n)||0;return S.cur==="$"||S.cur==="€"?S.cur+v.toLocaleString("en-US"):v.toLocaleString("ru-RU")+" "+S.cur};
 const bg=c=>`background:radial-gradient(120% 90% at 30% 20%, ${c} 0%, color-mix(in srgb, ${c} 45%, #0d0f13) 70%)`;
 const tg=()=>String(S.tg||"").replace(/^@/,"");
 let cat="all",q="",sort="order",cart=[],openId=null,photoIdx=0;
-try{cart=JSON.parse(localStorage.getItem("htr-cart")||"[]").filter(id=>ITEMS.some(i=>i.id===id))}catch(e){}
-const saveCart=()=>{try{localStorage.setItem("htr-cart",JSON.stringify(cart))}catch(e){}};
+const slidePos={};
+try{const saved=JSON.parse(localStorage.getItem("htr-cart2")||"[]");cart=saved.filter(id=>ITEMS.some(i=>i.id===id))}catch(e){}
+const saveCart=()=>{try{localStorage.setItem("htr-cart2",JSON.stringify(cart))}catch(e){}};
 
-function thumb(i,big){const p=i.photos[big?photoIdx:0];return `${ICONS[i.cat]}${p?`<img src="${esc(p)}" alt="${esc(i.name)}" loading="lazy" onerror="this.remove()">`:""}`}
+/* ---------- Карусель фото ---------- */
+function carousel(i,key,big){
+  const ph=i.photos;
+  if(!ph.length)return `<div class="thumb ${big?"big":""}" style="${bg(i.color)}" ${big?"":`data-open="${i.id}" data-idx="0" role="button" tabindex="0" aria-label="${esc(loc(i,"name"))}"`}>${ICONS[i.cat]}${tagHTML(i)}</div>`;
+  return `<div class="thumb ${big?"big":""}" style="${bg(i.color)}">
+   <div class="slides" data-key="${key}">${ph.map((p,k)=>`<div class="slide" ${big?"":`data-open="${i.id}" data-idx="${k}" role="button" tabindex="0"`}><img src="${esc(p)}" alt="${esc(loc(i,"name"))}" loading="${k===0&&!big?"eager":"lazy"}" draggable="false"></div>`).join("")}</div>
+   ${tagHTML(i)}
+   ${ph.length>1?`<button class="nav prev" data-nav="-1" data-key="${key}" aria-label="${esc(t("prev"))}">‹</button><button class="nav next" data-nav="1" data-key="${key}" aria-label="${esc(t("next"))}">›</button>
+   <div class="dots" data-dots="${key}">${ph.map((_,k)=>`<span${k===0?' class="on"':""}></span>`).join("")}</div>`:""}
+  </div>`;
+}
+const tagHTML=i=>i.tag==="new"||i.tag==="hit"?`<span class="tag ${i.tag}">${esc(t(i.tag))}</span>`:"";
+function goSlide(key,dir){
+  const el=document.querySelector(`.slides[data-key="${key}"]`);if(!el)return;
+  const n=el.children.length,cur=Math.round(el.scrollLeft/el.clientWidth);
+  const to=(cur+dir+n)%n;
+  el.scrollTo({left:to*el.clientWidth,behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});
+}
+function syncDots(el){
+  const key=el.dataset.key,idx=Math.round(el.scrollLeft/Math.max(1,el.clientWidth));
+  slidePos[key]=idx;
+  const d=document.querySelector(`[data-dots="${key}"]`);
+  if(d)[...d.children].forEach((s,k)=>s.classList.toggle("on",k===idx));
+  if(key.startsWith("m:"))document.querySelectorAll(".gal button").forEach((b,k)=>b.setAttribute("aria-current",k===idx));
+}
+function restoreSlides(){
+  document.querySelectorAll(".slides").forEach(el=>{const p=slidePos[el.dataset.key];if(p){el.scrollLeft=p*el.clientWidth;syncDots(el)}});
+}
+document.addEventListener("scroll",e=>{const el=e.target;if(el.classList&&el.classList.contains("slides"))syncDots(el)},true);
+
+/* ---------- Отрисовка ---------- */
 function card(i){
   const inCart=cart.includes(i.id),buy=safeUrl(i.buyUrl);
-  const btn=buy?`<a class="btn pri add" href="${esc(buy)}" target="_blank" rel="noopener">Купить</a>`:`<button class="btn add ${inCart?"in":""}" data-add="${i.id}">${inCart?"В корзине":"В корзину"}</button>`;
-  return `<article class="card"><button class="thumb" data-open="${i.id}" style="${bg(i.color)}" aria-label="Подробнее: ${esc(i.name)}">${thumb(i)}<span class="lot">HTR-${i.id}</span>${i.tag?`<span class="tag ${esc(i.tag)}">${i.tag==="new"?"Новинка":"Хит"}</span>`:""}${i.photos.length>1?`<span class="pcount">${i.photos.length} фото</span>`:""}</button>
-  <div class="body"><h3>${esc(i.name)}</h3><div class="specs">${i.specs.map(s=>`<span>${esc(s)}</span>`).join("")}</div>
+  const btn=buy?`<a class="btn pri add" href="${esc(buy)}" target="_blank" rel="noopener">${esc(t("buy"))}</a>`:`<button class="btn add ${inCart?"in":""}" data-add="${i.id}">${esc(t(inCart?"inCart":"add"))}</button>`;
+  return `<article class="card">${carousel(i,"c:"+i.id,false)}
+  <div class="body"><h3>${esc(loc(i,"name"))}</h3><div class="specs">${(i.specs||[]).map(s=>`<span>${esc(s)}</span>`).join("")}</div>
   <div class="foot"><span class="price">${money(i.price)}</span>${btn}</div></div></article>`;
 }
 function render(){
-  document.title=S.name;
-  let list=ITEMS.filter(i=>(cat==="all"||i.cat===cat)&&(i.name+" "+i.specs.join(" ")+" "+i.id).toLowerCase().includes(q));
+  document.title=S.name;document.documentElement.lang=lang;
+  let list=ITEMS.filter(i=>(cat==="all"||i.cat===cat)&&[i.name,i.name_ru,i.name_en,i.name_hi,(i.specs||[]).join(" ")].join(" ").toLowerCase().includes(q));
   list.sort((a,b)=>sort==="lo"?a.price-b.price:sort==="hi"?b.price-a.price:sort==="new"?b.order-a.order:a.order-b.order);
   const [n1,...rest]=S.name.split(" ");
   $("#root").innerHTML=`
   <header><div class="wrap bar"><div class="logo"><b>${esc(n1)}</b>${esc(rest.join(" "))}</div>
-   <div class="search"><input id="q" type="search" placeholder="Найти мод…" aria-label="Поиск" value="${esc(q)}"></div>
-   <button class="btn pri" id="openCart" aria-label="Корзина"><span class="lbl">Корзина</span><span class="cnt">${cart.length}</span></button></div></header>
+   <div class="search"><input id="q" type="search" placeholder="${esc(t("search"))}" aria-label="${esc(t("search"))}" value="${esc(q)}"></div>
+   <select id="lang" class="langsel" aria-label="Language">${LANGS.map(([c,s,n])=>`<option value="${c}" title="${n}" ${c===lang?"selected":""}>${s}</option>`).join("")}</select>
+   <button class="btn pri" id="openCart" aria-label="${esc(t("cart"))}"><span class="lbl">${esc(t("cart"))}</span><span class="cnt">${cart.length}</span></button></div></header>
   <main>
-   <section class="wrap hero"><div><h1>${esc(S.heroTitle)} <span>${esc(S.heroAccent)}</span></h1><p>${esc(S.heroText)}</p></div>
-    <div class="stats"><div><strong>${ITEMS.length}</strong><small>модов</small></div><div><strong>Add-On</strong><small>установка</small></div><div><strong>Весь мир</strong><small>оплата</small></div></div></section>
+   <section class="wrap hero"><div><h1>${esc(st("heroTitle"))} <span>${esc(st("heroAccent"))}</span></h1><p>${esc(st("heroText"))}</p></div>
+    <div class="stats"><div><strong>${ITEMS.length}</strong><small>${esc(t("mods"))}</small></div><div><strong>Add-On</strong><small>${esc(t("install"))}</small></div><div><strong>${esc(t("world"))}</strong><small>${esc(t("payment"))}</small></div></div></section>
    <section class="wrap">
-    <div class="cats" role="toolbar" aria-label="Категории">${CATS.map(([id,nm])=>{const n=id==="all"?ITEMS.length:ITEMS.filter(i=>i.cat===id).length;return n||id==="all"?`<button data-c="${id}" aria-pressed="${id===cat}">${nm}<span class="c">${n}</span></button>`:""}).join("")}</div>
-    <div class="tools"><span class="found">Найдено: ${list.length}</span>
-     <select id="sort" aria-label="Сортировка"><option value="order">По порядку</option><option value="new">Сначала новые</option><option value="lo">Сначала дешёвые</option><option value="hi">Сначала дорогие</option></select></div>
-    <div class="grid">${list.length?list.map(card).join(""):`<div class="empty">Ничего не нашлось. Попробуй другое название.</div>`}</div>
+    <div class="cats" role="toolbar">${CATS.map(id=>{const n=id==="all"?ITEMS.length:ITEMS.filter(i=>i.cat===id).length;return n||id==="all"?`<button data-c="${id}" aria-pressed="${id===cat}">${esc(t(id))}<span class="c">${n}</span></button>`:""}).join("")}</div>
+    <div class="tools"><span class="found">${esc(t("found"))}: ${list.length}</span>
+     <select id="sort"><option value="order">${esc(t("sOrder"))}</option><option value="new">${esc(t("sNew"))}</option><option value="lo">${esc(t("sLo"))}</option><option value="hi">${esc(t("sHi"))}</option></select></div>
+    <div class="grid">${list.length?list.map(card).join(""):`<div class="empty">${esc(t("empty"))}</div>`}</div>
    </section>
-   <section class="wrap how"><h2>Как купить</h2><div class="steps">
-    <div><b>Шаг 1</b><h4>Выбери мод</h4><p>Нажми «Купить» или собери несколько модов в корзину.</p></div>
-    <div><b>Шаг 2</b><h4>Оплати</h4><p>${esc(S.payNote)}</p></div>
-    <div><b>Шаг 3</b><h4>Установи</h4><p>В архиве мод и инструкция: Add-On через dlclist или Addon Peds. Вопросы пиши в Telegram.</p></div>
+   <section class="wrap how"><h2>${esc(t("how"))}</h2><div class="steps">
+    <div><b>${esc(t("step"))} 1</b><h4>${esc(t("h1"))}</h4><p>${esc(t("p1"))}</p></div>
+    <div><b>${esc(t("step"))} 2</b><h4>${esc(t("h2"))}</h4><p>${esc(st("payNote"))}</p></div>
+    <div><b>${esc(t("step"))} 3</b><h4>${esc(t("h3"))}</h4><p>${esc(t("p3"))}</p></div>
    </div></section>
   </main>
-  <footer><div class="wrap"><span>© ${new Date().getFullYear()} ${esc(S.name)}. Моды для одиночной игры GTA 5.</span><span>Telegram: <a class="mono" href="https://t.me/${encodeURIComponent(tg())}" target="_blank" rel="noopener">@${esc(tg())}</a></span></div></footer>`;
+  <footer><div class="wrap"><span>© ${new Date().getFullYear()} ${esc(S.name)}. ${esc(t("foot"))}</span><span>Telegram: <a class="mono" href="https://t.me/${encodeURIComponent(tg())}" target="_blank" rel="noopener">@${esc(tg())}</a></span></div></footer>`;
   $("#sort").value=sort;
   renderOverlay();
+  restoreSlides();
 }
 function renderOverlay(){
   let o=$("#ov");if(!o){o=document.createElement("div");o.id="ov";document.body.appendChild(o)}
+  document.body.style.overflow=openId?"hidden":"";
   if(openId==="cart"){o.innerHTML=cartHTML();return}
-  const i=openId&&ITEMS.find(x=>x.id===openId);o.innerHTML=i?itemHTML(i):"";
+  const i=openId&&ITEMS.find(x=>x.id===openId);
+  o.innerHTML=i?itemHTML(i):"";
+  if(i&&photoIdx){const el=o.querySelector(".slides");if(el){el.scrollLeft=photoIdx*el.clientWidth;syncDots(el)}}
 }
 function cartHTML(){
   const its=cart.map(id=>ITEMS.find(i=>i.id===id)).filter(Boolean),total=its.reduce((s,i)=>s+Number(i.price||0),0);
-  const txt=`Заказ ${S.name}\n`+its.map(i=>`• HTR-${i.id} ${i.name} — ${money(i.price)}`).join("\n")+`\nИтого: ${money(total)}`;
-  return `<div class="shade" data-close></div><aside class="drawer" aria-label="Корзина"><div class="dh"><h3>Корзина</h3><button class="x" data-close aria-label="Закрыть">✕</button></div>
-  <div class="items">${its.length?its.map(i=>`<div class="row"><div class="sw" style="${bg(i.color)}">${i.photos[0]?`<img src="${esc(i.photos[0])}" alt="">`:""}</div><div class="t"><div>${esc(i.name)}</div><small>HTR-${i.id} · ${esc(i.size)}</small></div><span class="p">${money(i.price)}</span><button class="rm" data-add="${i.id}" aria-label="Убрать">✕</button></div>`).join(""):`<p class="note" style="padding:24px 0;text-align:center">Корзина пустая. Добавь моды из каталога.</p>`}</div>
-  <div class="df"><div class="total"><span>Итого</span><span>${money(total)}</span></div>
-  ${its.length?`<p class="note">Скопируй заказ и отправь в Telegram <span class="mono">@${esc(tg())}</span>. Пришлю ссылку на оплату любой картой мира.</p><div class="order" id="orderText">${esc(txt)}</div>
-  <button class="btn pri" id="copy">Скопировать заказ</button><a class="btn" href="https://t.me/${encodeURIComponent(tg())}" target="_blank" rel="noopener">Открыть Telegram</a>`:""}</div></aside>`;
+  const txt=`${t("order")} ${S.name}\n`+its.map(i=>`• ${i.name} — ${money(i.price)}`).join("\n")+`\n${t("total")}: ${money(total)}`;
+  return `<div class="shade" data-close></div><aside class="drawer" aria-label="${esc(t("cart"))}"><div class="dh"><h3>${esc(t("cart"))}</h3><button class="x" data-close aria-label="${esc(t("close"))}">✕</button></div>
+  <div class="items">${its.length?its.map(i=>`<div class="row"><div class="sw" style="${bg(i.color)}">${i.photos[0]?`<img src="${esc(i.photos[0])}" alt="">`:""}</div><div class="t"><div>${esc(loc(i,"name"))}</div>${i.size?`<small>${esc(i.size)}</small>`:""}</div><span class="p">${money(i.price)}</span><button class="rm" data-add="${i.id}" aria-label="✕">✕</button></div>`).join(""):`<p class="note" style="padding:24px 0;text-align:center">${esc(t("cartEmpty"))}</p>`}</div>
+  <div class="df"><div class="total"><span>${esc(t("total"))}</span><span>${money(total)}</span></div>
+  ${its.length?`<p class="note">${esc(t("orderNote")).replace("{tg}",`<span class="mono">@${esc(tg())}</span>`)}</p><div class="order" id="orderText">${esc(txt)}</div>
+  <button class="btn pri" id="copy">${esc(t("copy"))}</button><a class="btn" href="https://t.me/${encodeURIComponent(tg())}" target="_blank" rel="noopener">${esc(t("openTg"))}</a>`:""}</div></aside>`;
 }
 function itemHTML(i){
   const inCart=cart.includes(i.id),buy=safeUrl(i.buyUrl);
   return `<div class="shade" data-close></div><div class="modal" role="dialog" aria-modal="true"><div class="mbox">
-   <div class="thumb" style="${bg(i.color)}">${thumb(i,true)}<span class="lot">HTR-${i.id}</span></div>
-   ${i.photos.length>1?`<div class="gal">${i.photos.map((p,k)=>`<button data-ph="${k}" aria-current="${k===photoIdx}" aria-label="Фото ${k+1}"><img src="${esc(p)}" alt=""></button>`).join("")}</div>`:""}
-   <div class="mbody"><div style="display:flex;justify-content:space-between;gap:12px;align-items:start"><h3>${esc(i.name)}</h3><button class="x" data-close aria-label="Закрыть">✕</button></div>
-   <p>${esc(i.desc)}</p>
-   <dl class="kv"><dt>Категория</dt><dd>${(CATS.find(c=>c[0]===i.cat)||["","Другое"])[1]}</dd>${i.size?`<dt>Размер</dt><dd>${esc(i.size)}</dd>`:""}${i.specs.length?`<dt>Особенности</dt><dd>${esc(i.specs.join(" · "))}</dd>`:""}<dt>Игра</dt><dd>GTA 5 (одиночная)</dd></dl>
-   <div class="foot"><span class="price">${money(i.price)}</span><div style="display:flex;gap:8px;flex-wrap:wrap">${buy?`<a class="btn pri" href="${esc(buy)}" target="_blank" rel="noopener">Купить</a>`:""}<button class="btn ${inCart?"in pri":""}" data-add="${i.id}">${inCart?"В корзине":"В корзину"}</button></div></div>
+   ${carousel(i,"m:"+i.id,true)}
+   ${i.photos.length>1?`<div class="gal">${i.photos.map((p,k)=>`<button data-ph="${k}" aria-current="${k===photoIdx}" aria-label="${k+1}"><img src="${esc(p)}" alt=""></button>`).join("")}</div>`:""}
+   <div class="mbody"><div style="display:flex;justify-content:space-between;gap:12px;align-items:start"><h3>${esc(loc(i,"name"))}</h3><button class="x" data-close aria-label="${esc(t("close"))}">✕</button></div>
+   ${loc(i,"desc")?`<p>${esc(loc(i,"desc"))}</p>`:""}
+   <dl class="kv"><dt>${esc(t("cat"))}</dt><dd>${esc(t(i.cat))}</dd>${i.size?`<dt>${esc(t("size"))}</dt><dd>${esc(i.size)}</dd>`:""}${(i.specs||[]).length?`<dt>${esc(t("specs"))}</dt><dd>${esc(i.specs.join(" · "))}</dd>`:""}<dt>${esc(t("game"))}</dt><dd>${esc(t("gameV"))}</dd></dl>
+   <div class="foot"><span class="price">${money(i.price)}</span><div style="display:flex;gap:8px;flex-wrap:wrap">${buy?`<a class="btn pri" href="${esc(buy)}" target="_blank" rel="noopener">${esc(t("buy"))}</a>`:""}<button class="btn ${inCart?"in pri":""}" data-add="${i.id}">${esc(t(inCart?"inCart":"add"))}</button></div></div>
    </div></div></div>`;
 }
-function toast(t){let el=$("#toast");if(!el){el=document.createElement("div");el.id="toast";el.className="toast";document.body.appendChild(el)}el.textContent=t;el.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>el.hidden=true,2400)}
+function toast(m){let el=$("#toast");if(!el){el=document.createElement("div");el.id="toast";el.className="toast";document.body.appendChild(el)}el.textContent=m;el.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>el.hidden=true,2400)}
 
+/* ---------- События ---------- */
 document.addEventListener("click",ev=>{
   if(ev.target.classList&&ev.target.classList.contains("modal")){openId=null;renderOverlay();return}
-  const t=ev.target.closest("[data-c],[data-add],[data-open],[data-close],[data-ph],#openCart,#copy");if(!t)return;
-  const d=t.dataset;
-  if(d.c){cat=d.c;render()}
-  else if(d.add){cart.includes(d.add)?(cart=cart.filter(x=>x!==d.add),toast("Убрано из корзины")):(cart.push(d.add),toast("Добавлено в корзину"));saveCart();render()}
-  else if(d.open){openId=d.open;photoIdx=0;renderOverlay()}
-  else if(d.ph!==undefined){photoIdx=+d.ph;renderOverlay()}
+  const el=ev.target.closest("[data-nav],[data-c],[data-add],[data-open],[data-close],[data-ph],#openCart,#copy");if(!el)return;
+  const d=el.dataset;
+  if(d.nav){ev.preventDefault();goSlide(d.key,+d.nav)}
+  else if(d.c){cat=d.c;render()}
+  else if(d.add){cart.includes(d.add)?(cart=cart.filter(x=>x!==d.add),toast(t("removed"))):(cart.push(d.add),toast(t("added")));saveCart();render()}
+  else if(d.open){openId=d.open;photoIdx=+d.idx||0;renderOverlay()}
+  else if(d.ph!==undefined){const s=document.querySelector(".mbox .slides");if(s)s.scrollTo({left:+d.ph*s.clientWidth,behavior:"smooth"})}
   else if("close" in d){openId=null;renderOverlay()}
-  else if(t.id==="openCart"){openId="cart";renderOverlay()}
-  else if(t.id==="copy"){const el=$("#orderText");navigator.clipboard.writeText(el.textContent).then(()=>toast("Заказ скопирован")).catch(()=>{const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r);toast("Текст выделен, нажми Ctrl+C")})}
+  else if(el.id==="openCart"){openId="cart";renderOverlay()}
+  else if(el.id==="copy"){const o=$("#orderText");navigator.clipboard.writeText(o.textContent).then(()=>toast(t("copied"))).catch(()=>{const r=document.createRange();r.selectNodeContents(o);const s=getSelection();s.removeAllRanges();s.addRange(r);toast(t("selected"))})}
+});
+/* мышью тоже можно тянуть фото */
+let drag=null;
+document.addEventListener("pointerdown",e=>{const s=e.target.closest(".slides");if(!s||e.pointerType!=="mouse")return;drag={s,x:e.clientX,left:s.scrollLeft,moved:false};s.classList.add("dragging")});
+document.addEventListener("pointermove",e=>{if(!drag)return;const dx=e.clientX-drag.x;if(Math.abs(dx)>4)drag.moved=true;drag.s.scrollLeft=drag.left-dx});
+document.addEventListener("pointerup",e=>{if(!drag)return;const {s,moved,left}=drag;s.classList.remove("dragging");const w=s.clientWidth,dx=s.scrollLeft-left;const idx=Math.round(left/w)+(Math.abs(dx)>w*0.15?Math.sign(dx):0);s.scrollTo({left:Math.max(0,Math.min(idx,s.children.length-1))*w,behavior:"smooth"});if(moved){const stop=ev=>{ev.stopPropagation();ev.preventDefault()};window.addEventListener("click",stop,{capture:true,once:true});setTimeout(()=>window.removeEventListener("click",stop,true),50)}drag=null});
+document.addEventListener("keydown",e=>{
+  if(e.key==="Escape"){openId=null;renderOverlay();return}
+  if((e.key==="Enter"||e.key===" ")&&e.target.dataset&&e.target.dataset.open){e.preventDefault();e.target.click()}
+  if(openId&&openId!=="cart"&&(e.key==="ArrowLeft"||e.key==="ArrowRight"))goSlide("m:"+openId,e.key==="ArrowLeft"?-1:1);
 });
 document.addEventListener("input",e=>{if(e.target.id==="q"){q=e.target.value.trim().toLowerCase();const pos=e.target.selectionStart;render();const n=$("#q");n.focus();try{n.setSelectionRange(pos,pos)}catch(x){}}});
-document.addEventListener("change",e=>{if(e.target.id==="sort"){sort=e.target.value;render()}});
-document.addEventListener("keydown",e=>{if(e.key==="Escape"){openId=null;renderOverlay()}});
+document.addEventListener("change",e=>{
+  if(e.target.id==="sort"){sort=e.target.value;render()}
+  if(e.target.id==="lang"){lang=e.target.value;try{localStorage.setItem("htr-lang",lang)}catch(x){}render()}
+});
+let rt;addEventListener("resize",()=>{clearTimeout(rt);rt=setTimeout(restoreSlides,120)});
 render();
 })();

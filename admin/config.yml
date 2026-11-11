@@ -25,7 +25,10 @@ collections:
             widget: list
             summary: "{{fields.name}} — {{fields.price}}"
             fields:
-              - { name: name, label: Название, widget: string }
+              - { name: name, label: "Название (основное)", widget: string }
+              - { name: name_ru, label: "Название — русский (необязательно)", widget: string, required: false }
+              - { name: name_en, label: "Название — English (необязательно)", widget: string, required: false }
+              - { name: name_hi, label: "Название — हिन्दी (необязательно)", widget: string, required: false }
               - name: cat
                 label: Категория
                 widget: select
@@ -54,7 +57,10 @@ collections:
                 field: { name: photo, label: Фото, widget: image }
               - { name: specs, label: "Особенности (Add-On, Тюнинг 20…)", widget: list, required: false }
               - { name: size, label: Размер файла, widget: string, required: false }
-              - { name: desc, label: Описание, widget: text, required: false }
+              - { name: desc, label: "Описание (основное)", widget: text, required: false }
+              - { name: desc_ru, label: "Описание — русский (необязательно)", widget: text, required: false }
+              - { name: desc_en, label: "Описание — English (необязательно)", widget: text, required: false }
+              - { name: desc_hi, label: "Описание — हिन्दी (необязательно)", widget: text, required: false, hint: "Если поле языка пустое, покупатель видит основное описание." }
               - { name: buyUrl, label: "Ссылка на оплату (Gumroad)", widget: string, required: false, hint: "Ссылка на этот товар в Gumroad. Пусто — покупка через корзину и Telegram." }
       - name: settings
         label: Настройки магазина
@@ -67,3 +73,11 @@ collections:
           - { name: heroAccent, label: Выделенная часть заголовка, widget: string }
           - { name: heroText, label: Текст под заголовком, widget: text }
           - { name: payNote, label: Про оплату, widget: text }
+          - { name: heroTitle_en, label: "Заголовок — English (необязательно)", widget: string, required: false }
+          - { name: heroAccent_en, label: "Выделенная часть — English (необязательно)", widget: string, required: false }
+          - { name: heroText_en, label: "Текст под заголовком — English (необязательно)", widget: text, required: false }
+          - { name: payNote_en, label: "Про оплату — English (необязательно)", widget: text, required: false }
+          - { name: heroTitle_hi, label: "Заголовок — हिन्दी (необязательно)", widget: string, required: false }
+          - { name: heroAccent_hi, label: "Выделенная часть — हिन्दी (необязательно)", widget: string, required: false }
+          - { name: heroText_hi, label: "Текст под заголовком — हिन्दी (необязательно)", widget: text, required: false }
+          - { name: payNote_hi, label: "Про оплату — हिन्दी (необязательно)", widget: text, required: false }
