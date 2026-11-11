@@ -21,7 +21,7 @@
     },
     {
       "cat": "car",
-      "price": 25,
+      "price": 21,
       "tag": "hit",
       "name": "MACK 🌈",
       "photos": [
@@ -31,7 +31,8 @@
         "/images/uploads/bb4.png",
         "/images/uploads/bb5.png"
       ],
-      "desc": "Mack from Disney & Pixar\n🌈 - (RGB colors mean that it can be recolored to any color in the game)\n✔ - Add-On\n☀ - For Kids Fun Videos\n"
+      "desc": "Mack from Disney & Pixar\n🌈 - (RGB colors mean that it can be recolored to any color in the game)\n✔ - Add-On\n☀ - For Kids Fun Videos\n",
+      "oldPrice": 25
     },
     {
       "cat": "car",
