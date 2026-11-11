@@ -10,30 +10,30 @@ const T={
   empty:"Ничего не найдено",how:"Как купить",step:"Шаг",h1:"Выбери мод",p1:"Нажми «Купить» или собери несколько модов в корзину.",h2:"Оплати",h3:"Установи",
   p3:"В архиве мод и инструкция: Add-On через dlclist или Addon Peds. Вопросы пиши в Telegram.",foot:"Моды для одиночной игры GTA 5.",
   buy:"Купить",add:"В корзину",inCart:"В корзине",new:"Новинка",hit:"Хит",photos:"фото",cartEmpty:"Корзина пустая. Добавь моды из каталога.",total:"Итого",
-  orderNote:"Скопируй заказ и отправь в Telegram {tg}. Я пришлю реквизиты для оплаты: PayPal, USDT или карта украинского банка.",copy:"Скопировать заказ",openTg:"Открыть Telegram",order:"Заказ",
+  orderNote:"Нажми «Написать в Telegram»: текст заказа скопируется сам, просто вставь его в чат с {tg}. В ответ пришлю реквизиты: PayPal, USDT или карта украинского банка.",copy:"Скопировать заказ",openTg:"Написать в Telegram",order:"Заказ",
   added:"Добавлено в корзину",removed:"Убрано из корзины",copied:"Заказ скопирован",selected:"Текст выделен, нажми Ctrl+C",
   cat:"Категория",size:"Размер",specs:"Особенности",game:"Игра",gameV:"GTA 5 (одиночная)",close:"Закрыть",prev:"Предыдущее фото",next:"Следующее фото",
-  tagline:"Покупай в два клика",cta:"Смотреть моды",uaCards:"Карты Украины",loadErr:"Не удалось загрузить каталог. Обнови страницу.",
+  hello:"Привет! Хочу купить:",copiedTg:"Заказ скопирован — вставь его в чат (Ctrl+V)",tagline:"Покупай в два клика",cta:"Смотреть моды",uaCards:"Карты Украины",loadErr:"Не удалось загрузить каталог. Обнови страницу.",
   heroTitle:"Моды для GTA 5",heroAccent:"от HTR",heroText:"Машины, мотоциклы и персонажи, собранные вручную в Blender. Каждый мод проверен в игре и ставится как Add-On, не заменяя стандартные модели.",payNote:"Оплата картой любой страны или PayPal. После оплаты файл приходит на почту автоматически."},
  en:{search:"Search mods…",cart:"Cart",all:"All",car:"Cars",moto:"Motorcycles",ped:"Characters",map:"Maps",pack:"Packs",other:"Other",
   mods:"mods",install:"install",world:"Worldwide",payment:"payment",found:"Found",sOrder:"Default order",sNew:"Newest first",sLo:"Price: low to high",sHi:"Price: high to low",
   empty:"Nothing found",how:"How to buy",step:"Step",h1:"Pick a mod",p1:"Press “Buy” or add several mods to the cart.",h2:"Pay",h3:"Install",
   p3:"The archive contains the mod and a guide: Add-On via dlclist or Addon Peds. Questions? Write on Telegram.",foot:"Mods for GTA 5 single player.",
   buy:"Buy",add:"Add to cart",inCart:"In cart",new:"New",hit:"Hit",photos:"photos",cartEmpty:"Your cart is empty. Add mods from the catalog.",total:"Total",
-  orderNote:"Copy the order and send it on Telegram to {tg}. I’ll reply with payment details: PayPal, USDT or a Ukrainian bank card.",copy:"Copy order",openTg:"Open Telegram",order:"Order",
+  orderNote:"Press “Message on Telegram”: your order text is copied automatically, just paste it into the chat with {tg}. I’ll reply with payment details: PayPal, USDT or a Ukrainian bank card.",copy:"Copy order",openTg:"Message on Telegram",order:"Order",
   added:"Added to cart",removed:"Removed from cart",copied:"Order copied",selected:"Text selected, press Ctrl+C",
   cat:"Category",size:"Size",specs:"Features",game:"Game",gameV:"GTA 5 (single player)",close:"Close",prev:"Previous photo",next:"Next photo",
-  tagline:"Buy in two clicks",cta:"Browse mods",uaCards:"Ukrainian cards",loadErr:"Couldn’t load the catalog. Please refresh the page.",
+  hello:"Hi! I’d like to buy:",copiedTg:"Order copied — paste it into the chat (Ctrl+V)",tagline:"Buy in two clicks",cta:"Browse mods",uaCards:"Ukrainian cards",loadErr:"Couldn’t load the catalog. Please refresh the page.",
   heroTitle:"Mods for GTA 5",heroAccent:"by HTR",heroText:"Cars, motorcycles and characters hand-built in Blender. Every mod is tested in game and installs as an Add-On without replacing the stock models.",payNote:"Pay with a card from any country or with PayPal. The file arrives by email automatically after payment."},
  hi:{search:"मॉड खोजें…",cart:"कार्ट",all:"सभी",car:"कारें",moto:"मोटरसाइकिलें",ped:"किरदार",map:"मैप",pack:"पैक",other:"अन्य",
   mods:"मॉड",install:"इंस्टॉल",world:"पूरी दुनिया",payment:"भुगतान",found:"मिले",sOrder:"क्रम से",sNew:"पहले नए",sLo:"पहले सस्ते",sHi:"पहले महंगे",
   empty:"कुछ नहीं मिला",how:"कैसे खरीदें",step:"चरण",h1:"मॉड चुनें",p1:"«खरीदें» दबाएँ या कई मॉड कार्ट में जोड़ें।",h2:"भुगतान करें",h3:"इंस्टॉल करें",
   p3:"आर्काइव में मॉड और निर्देश हैं: dlclist या Addon Peds से Add-On। कोई सवाल हो तो Telegram पर लिखें।",foot:"GTA 5 सिंगल-प्लेयर के लिए मॉड।",
   buy:"खरीदें",add:"कार्ट में डालें",inCart:"कार्ट में है",new:"नया",hit:"हिट",photos:"फ़ोटो",cartEmpty:"कार्ट खाली है। कैटलॉग से मॉड जोड़ें।",total:"कुल",
-  orderNote:"ऑर्डर कॉपी करके Telegram पर {tg} को भेजें। मैं भुगतान की जानकारी भेजूँगा: PayPal, USDT या यूक्रेनी बैंक कार्ड।",copy:"ऑर्डर कॉपी करें",openTg:"Telegram खोलें",order:"ऑर्डर",
+  orderNote:"«Telegram पर लिखें» दबाएँ: ऑर्डर का टेक्स्ट अपने-आप कॉपी हो जाएगा, बस उसे {tg} के चैट में पेस्ट करें। जवाब में भुगतान की जानकारी भेजूँगा: PayPal, USDT या यूक्रेनी बैंक कार्ड।",copy:"ऑर्डर कॉपी करें",openTg:"Telegram पर लिखें",order:"ऑर्डर",
   added:"कार्ट में जोड़ा गया",removed:"कार्ट से हटाया गया",copied:"ऑर्डर कॉपी हो गया",selected:"टेक्स्ट चुना गया, Ctrl+C दबाएँ",
   cat:"श्रेणी",size:"साइज़",specs:"विशेषताएँ",game:"गेम",gameV:"GTA 5 (सिंगल-प्लेयर)",close:"बंद करें",prev:"पिछली फ़ोटो",next:"अगली फ़ोटो",
-  tagline:"दो क्लिक में खरीदें",cta:"मॉड देखें",uaCards:"यूक्रेनी कार्ड",loadErr:"कैटलॉग लोड नहीं हुआ। पेज रीफ़्रेश करें।",
+  hello:"नमस्ते! मैं ये खरीदना चाहता हूँ:",copiedTg:"ऑर्डर कॉपी हो गया — चैट में पेस्ट करें (Ctrl+V)",tagline:"दो क्लिक में खरीदें",cta:"मॉड देखें",uaCards:"यूक्रेनी कार्ड",loadErr:"कैटलॉग लोड नहीं हुआ। पेज रीफ़्रेश करें।",
   heroTitle:"GTA 5 के लिए मॉड",heroAccent:"HTR से",heroText:"Blender में हाथ से बनाई गई कारें, मोटरसाइकिलें और किरदार। हर मॉड गेम में जाँचा गया है और Add-On के रूप में इंस्टॉल होता है, मूल मॉडल नहीं बदलता।",payNote:"किसी भी देश के कार्ड या PayPal से भुगतान। भुगतान के बाद फ़ाइल अपने-आप ईमेल पर आ जाती है।"}
 };
 const LANGS=[["ru","RU","Русский"],["en","EN","English"],["hi","HI","हिन्दी"]];
@@ -172,12 +172,12 @@ function renderOverlay(){
 }
 function cartHTML(){
   const its=cart.map(id=>ITEMS.find(i=>i.id===id)).filter(Boolean),total=its.reduce((s,i)=>s+Number(i.price||0),0);
-  const txt=`${t("order")} ${S.name}\n`+its.map(i=>`• ${i.name} — ${money(i.price)}`).join("\n")+`\n${t("total")}: ${money(total)}`;
+  const txt=`${t("hello")}\n\n${t("order")} ${S.name}\n`+its.map(i=>`• ${loc(i,"name")} — ${money(i.price)}`).join("\n")+`\n${t("total")}: ${money(total)}`;
   return `<div class="shade" data-close></div><aside class="drawer" aria-label="${esc(t("cart"))}"><div class="dh"><h3>${esc(t("cart"))}</h3><button class="x" data-close aria-label="${esc(t("close"))}">✕</button></div>
   <div class="items">${its.length?its.map(i=>`<div class="row"><div class="sw" style="${bg(i.color)}">${i.photos[0]?`<img src="${esc(i.photos[0])}" alt="">`:""}</div><div class="t"><div>${esc(loc(i,"name"))}</div>${i.size?`<small>${esc(i.size)}</small>`:""}</div><span class="p">${money(i.price)}</span><button class="rm" data-add="${i.id}" aria-label="✕">✕</button></div>`).join(""):`<p class="note" style="padding:24px 0;text-align:center">${esc(t("cartEmpty"))}</p>`}</div>
   <div class="df"><div class="total"><span>${esc(t("total"))}</span><span>${money(total)}</span></div>
   ${its.length?`<p class="note">${esc(t("orderNote")).replace("{tg}",`<span class="mono">@${esc(tg())}</span>`)}</p><div class="order" id="orderText">${esc(txt)}</div>
-  <button class="btn pri" id="copy">${esc(t("copy"))}</button><a class="btn" href="https://t.me/${encodeURIComponent(tg())}" target="_blank" rel="noopener">${esc(t("openTg"))}</a>`:""}</div></aside>`;
+  <a class="btn pri" id="tgLink" href="https://t.me/${encodeURIComponent(tg())}?text=${encodeURIComponent(txt)}" target="_blank" rel="noopener">${esc(t("openTg"))}</a><button class="btn" id="copy">${esc(t("copy"))}</button>`:""}</div></aside>`;
 }
 function itemHTML(i){
   const inCart=cart.includes(i.id),buy=safeUrl(i.buyUrl);
@@ -195,7 +195,7 @@ function toast(m){let el=$("#toast");if(!el){el=document.createElement("div");el
 /* ---------- События ---------- */
 document.addEventListener("click",ev=>{
   if(ev.target.classList&&ev.target.classList.contains("modal")){openId=null;renderOverlay();return}
-  const el=ev.target.closest("[data-nav],[data-c],[data-add],[data-open],[data-close],[data-ph],#openCart,#copy");if(!el)return;
+  const el=ev.target.closest("[data-nav],[data-c],[data-add],[data-open],[data-close],[data-ph],#openCart,#copy,#tgLink");if(!el)return;
   const d=el.dataset;
   if(d.nav){ev.preventDefault();goSlide(d.key,+d.nav)}
   else if(d.c){cat=d.c;render()}
@@ -204,6 +204,7 @@ document.addEventListener("click",ev=>{
   else if(d.ph!==undefined){const s=document.querySelector(".mbox .slides");if(s)s.scrollTo({left:+d.ph*s.clientWidth,behavior:"smooth"})}
   else if("close" in d){openId=null;renderOverlay()}
   else if(el.id==="openCart"){openId="cart";renderOverlay()}
+  else if(el.id==="tgLink"){const o=$("#orderText");if(o&&navigator.clipboard)navigator.clipboard.writeText(o.textContent).then(()=>toast(t("copiedTg"))).catch(()=>{})}
   else if(el.id==="copy"){const o=$("#orderText");navigator.clipboard.writeText(o.textContent).then(()=>toast(t("copied"))).catch(()=>{const r=document.createRange();r.selectNodeContents(o);const s=getSelection();s.removeAllRanges();s.addRange(r);toast(t("selected"))})}
 });
 /* мышью тоже можно тянуть фото */
