@@ -13,7 +13,7 @@ const T={
   orderNote:"Нажми «Написать в Telegram»: текст заказа скопируется сам, просто вставь его в чат с {tg}. В ответ пришлю реквизиты: PayPal, USDT или карта украинского банка.",copy:"Скопировать заказ",openTg:"Написать в Telegram",order:"Заказ",
   added:"Добавлено в корзину",removed:"Убрано из корзины",copied:"Заказ скопирован",selected:"Текст выделен, нажми Ctrl+C",
   cat:"Категория",size:"Размер",specs:"Особенности",game:"Игра",gameV:"GTA 5 (одиночная)",close:"Закрыть",prev:"Предыдущее фото",next:"Следующее фото",
-  hello:"Привет! Хочу купить:",copiedTg:"Заказ скопирован — вставь его в чат (Ctrl+V)",tagline:"САМЫЕ СВЕЖИЕ МОДЫ",cta:"Смотреть моды",uaCards:"Карты Украины",loadErr:"Не удалось загрузить каталог. Обнови страницу.",
+  hello:"Привет! Хочу купить:",copiedTg:"Заказ скопирован — вставь его в чат (Ctrl+V)",tagline:"САМЫЕ СВЕЖИЕ МОДЫ",cta:"Смотреть моды",uaCards:"Карты Украины",weAccept:"Принимаем к оплате",payWith:"Способы оплаты",loadErr:"Не удалось загрузить каталог. Обнови страницу.",
   heroTitle:"Моды для GTA 5",heroAccent:"от HTR",heroText:"Машины, мотоциклы и персонажи, собранные вручную в Blender. Каждый мод проверен в игре и ставится как Add-On, не заменяя стандартные модели.",payNote:"Оплата картой любой страны или PayPal. После оплаты файл приходит на почту автоматически."},
  en:{search:"Search mods…",cart:"Cart",all:"All",car:"Cars",moto:"Motorcycles",ped:"Characters",map:"Maps",pack:"Packs",other:"Other",
   mods:"mods",install:"install",world:"Worldwide",payment:"payment",found:"Found",sOrder:"Default order",sNew:"Newest first",sLo:"Price: low to high",sHi:"Price: high to low",
@@ -23,7 +23,7 @@ const T={
   orderNote:"Press “Message on Telegram”: your order text is copied automatically, just paste it into the chat with {tg}. I’ll reply with payment details: PayPal, USDT or a Ukrainian bank card.",copy:"Copy order",openTg:"Message on Telegram",order:"Order",
   added:"Added to cart",removed:"Removed from cart",copied:"Order copied",selected:"Text selected, press Ctrl+C",
   cat:"Category",size:"Size",specs:"Features",game:"Game",gameV:"GTA 5 (single player)",close:"Close",prev:"Previous photo",next:"Next photo",
-  hello:"Hi! I’d like to buy:",copiedTg:"Order copied — paste it into the chat (Ctrl+V)",tagline:"THE FRESHEST MODS",cta:"Browse mods",uaCards:"Ukrainian cards",loadErr:"Couldn’t load the catalog. Please refresh the page.",
+  hello:"Hi! I’d like to buy:",copiedTg:"Order copied — paste it into the chat (Ctrl+V)",tagline:"THE FRESHEST MODS",cta:"Browse mods",uaCards:"Ukrainian cards",weAccept:"We accept",payWith:"Payment methods",loadErr:"Couldn’t load the catalog. Please refresh the page.",
   heroTitle:"Mods for GTA 5",heroAccent:"by HTR",heroText:"Cars, motorcycles and characters hand-built in Blender. Every mod is tested in game and installs as an Add-On without replacing the stock models.",payNote:"Pay with a card from any country or with PayPal. The file arrives by email automatically after payment."},
  hi:{search:"मॉड खोजें…",cart:"कार्ट",all:"सभी",car:"कारें",moto:"मोटरसाइकिलें",ped:"किरदार",map:"मैप",pack:"पैक",other:"अन्य",
   mods:"मॉड",install:"इंस्टॉल",world:"पूरी दुनिया",payment:"भुगतान",found:"मिले",sOrder:"क्रम से",sNew:"पहले नए",sLo:"पहले सस्ते",sHi:"पहले महंगे",
@@ -33,7 +33,7 @@ const T={
   orderNote:"«Telegram पर लिखें» दबाएँ: ऑर्डर का टेक्स्ट अपने-आप कॉपी हो जाएगा, बस उसे {tg} के चैट में पेस्ट करें। जवाब में भुगतान की जानकारी भेजूँगा: PayPal, USDT या यूक्रेनी बैंक कार्ड।",copy:"ऑर्डर कॉपी करें",openTg:"Telegram पर लिखें",order:"ऑर्डर",
   added:"कार्ट में जोड़ा गया",removed:"कार्ट से हटाया गया",copied:"ऑर्डर कॉपी हो गया",selected:"टेक्स्ट चुना गया, Ctrl+C दबाएँ",
   cat:"श्रेणी",size:"साइज़",specs:"विशेषताएँ",game:"गेम",gameV:"GTA 5 (सिंगल-प्लेयर)",close:"बंद करें",prev:"पिछली फ़ोटो",next:"अगली फ़ोटो",
-  hello:"नमस्ते! मैं ये खरीदना चाहता हूँ:",copiedTg:"ऑर्डर कॉपी हो गया — चैट में पेस्ट करें (Ctrl+V)",tagline:"सबसे नए मॉड",cta:"मॉड देखें",uaCards:"यूक्रेनी कार्ड",loadErr:"कैटलॉग लोड नहीं हुआ। पेज रीफ़्रेश करें।",
+  hello:"नमस्ते! मैं ये खरीदना चाहता हूँ:",copiedTg:"ऑर्डर कॉपी हो गया — चैट में पेस्ट करें (Ctrl+V)",tagline:"सबसे नए मॉड",cta:"मॉड देखें",uaCards:"यूक्रेनी कार्ड",weAccept:"हम स्वीकार करते हैं",payWith:"भुगतान के तरीके",loadErr:"कैटलॉग लोड नहीं हुआ। पेज रीफ़्रेश करें।",
   heroTitle:"GTA 5 के लिए मॉड",heroAccent:"HTR से",heroText:"Blender में हाथ से बनाई गई कारें, मोटरसाइकिलें और किरदार। हर मॉड गेम में जाँचा गया है और Add-On के रूप में इंस्टॉल होता है, मूल मॉडल नहीं बदलता।",payNote:"किसी भी देश के कार्ड या PayPal से भुगतान। भुगतान के बाद फ़ाइल अपने-आप ईमेल पर आ जाती है।"}
 };
 const LANGS=[["ru","RU","Русский"],["en","EN","English"],["hi","HI","हिन्दी"]];
@@ -124,6 +124,21 @@ function haystack(i){
   const parts=[i.name,i.name_ru,i.name_en,i.name_hi,i.desc,i.desc_ru,i.desc_en,i.desc_hi,(i.specs||[]).join(" "),kw,T.ru[i.cat],T.en[i.cat],T.hi[i.cat]];
   return hayCache[i.id]=norm(parts.filter(Boolean).join(" "));
 }
+/* ---------- Флаги и оплата ---------- */
+const FLAGS={
+ ru:'<svg viewBox="0 0 30 20" class="flag" aria-hidden="true"><rect width="30" height="20" fill="#fff"/><rect y="6.67" width="30" height="6.67" fill="#0039a6"/><rect y="13.33" width="30" height="6.67" fill="#d52b1e"/></svg>',
+ en:'<svg viewBox="0 0 30 20" class="flag" aria-hidden="true"><rect width="30" height="20" fill="#b22234"/>'+[1,3,5,7,9,11].map(k=>`<rect y="${k*20/13}" width="30" height="${20/13}" fill="#fff"/>`).join("")+'<rect width="13" height="10.77" fill="#3c3b6e"/><g fill="#fff">'+[[2,2],[5,2],[8,2],[11,2],[3.5,4.2],[6.5,4.2],[9.5,4.2],[2,6.4],[5,6.4],[8,6.4],[11,6.4],[3.5,8.6],[6.5,8.6],[9.5,8.6]].map(([x,y])=>`<circle cx="${x}" cy="${y}" r=".6"/>`).join("")+'</g></svg>',
+ hi:'<svg viewBox="0 0 30 20" class="flag" aria-hidden="true"><rect width="30" height="20" fill="#fff"/><rect width="30" height="6.67" fill="#ff9933"/><rect y="13.33" width="30" height="6.67" fill="#138808"/><circle cx="15" cy="10" r="2.6" fill="none" stroke="#000080" stroke-width=".7"/><circle cx="15" cy="10" r=".6" fill="#000080"/></svg>'
+};
+const PAY_ICONS={
+ paypal:'<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8.3 21.5H4.6c-.4 0-.6-.3-.6-.7L6.7 3.4c.1-.5.5-.9 1-.9h6.4c3.7 0 5.6 2 5 5.3-.7 4-3.3 5.6-6.8 5.6H10c-.5 0-.9.4-1 .9l-.7 4.9z" fill="#003087"/><path d="M19.6 7.6c-.7 4-3.3 5.6-6.8 5.6h-2.3c-.5 0-.9.4-1 .9l-1.2 7.4h3.1c.4 0 .8-.3.9-.8l.6-3.9c.1-.5.5-.8.9-.8h.6c3 0 5.4-1.3 6-4.9.3-1.6 0-2.9-.8-3.5z" fill="#009cde"/></svg>',
+ usdt:'<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#26a17b"/><path d="M13.2 10.6V8.9h3.6V6.6H7.2v2.3h3.6v1.7c-2.9.1-5.1.7-5.1 1.4s2.2 1.3 5.1 1.4v5h2.4v-5c2.9-.1 5.1-.7 5.1-1.4s-2.2-1.3-5.1-1.4zm0 2.3c-.1 0-.5 0-1.2 0-.6 0-1 0-1.2 0-2.6-.1-4.4-.6-4.4-1.1s1.9-1 4.4-1.1v1.8h2.4v-1.8c2.6.1 4.4.6 4.4 1.1s-1.9 1-4.4 1.1z" fill="#fff"/></svg>',
+ card:'<svg viewBox="0 0 38 24" width="28" height="18" aria-hidden="true"><rect width="38" height="24" rx="3" fill="#fff"/><circle cx="15" cy="12" r="7" fill="#eb001b"/><circle cx="23" cy="12" r="7" fill="#f79e1b"/><path d="M19 6.3a7 7 0 0 1 0 11.4 7 7 0 0 1 0-11.4z" fill="#ff5f00"/></svg>',
+ visa:'<svg viewBox="0 0 38 24" width="28" height="18" aria-hidden="true"><rect width="38" height="24" rx="3" fill="#1a1f71"/><text x="19" y="16" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10" font-weight="700" font-style="italic" fill="#fff">VISA</text></svg>'
+};
+function payBadges(){
+  return `<div class="paylist"><span class="pb">${PAY_ICONS.paypal}PayPal</span><span class="pb">${PAY_ICONS.usdt}USDT</span><span class="pb">${PAY_ICONS.visa}${PAY_ICONS.card}${esc(t("uaCards"))}</span></div>`;
+}
 /* ---------- Отрисовка ---------- */
 function card(i){
   const inCart=cart.includes(i.id),buy=safeUrl(i.buyUrl);
@@ -141,12 +156,14 @@ function render(){
   $("#root").innerHTML=`
   <header><div class="wrap bar"><a class="logo" href="/" aria-label="${esc(S.name)}"><b>${esc(n1)}</b><span class="rest">${esc(rest.join(" "))}</span></a>
    <div class="search"><input id="q" type="search" placeholder="${esc(t("search"))}" aria-label="${esc(t("search"))}" value="${esc(q)}"></div>
-   <select id="lang" class="langsel" aria-label="Language">${LANGS.map(([c,s,n])=>`<option value="${c}" title="${n}" ${c===lang?"selected":""}>${s}</option>`).join("")}</select>
+   <details class="langdd"><summary aria-label="Language">${FLAGS[lang]}<span>${LANGS.find(l=>l[0]===lang)[1]}</span><svg class="chev" viewBox="0 0 12 12" width="10" height="10" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></summary>
+    <div class="langmenu">${LANGS.map(([c,sh,n])=>`<button data-lang="${c}" aria-current="${c===lang}">${FLAGS[c]}<span>${n}</span></button>`).join("")}</div></details>
    <button class="btn pri" id="openCart" aria-label="${esc(t("cart"))}"><span class="lbl">${esc(t("cart"))}</span><span class="cnt">${cart.length}</span></button></div></header>
   <main>
    <section class="hero"><div class="wrap herowrap">
     <h1>${esc(st("heroTitle"))} <span>${esc(st("heroAccent"))}</span></h1>
     <p class="tagline"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12 2c.6 3.2-1 5-2.6 6.8C7.8 10.6 6 12.6 6 15.5A6 6 0 0 0 18 15.5c0-2.4-1-4.3-2.4-5.6.2 1.6-.4 2.9-1.6 3.4.4-3.6-.6-8.4-2-11.3z"/></svg>${esc(t("tagline"))}</p>
+    <div class="accept"><span class="acclbl">${esc(t("weAccept"))}</span>${payBadges()}</div>
    </div></section>
    <section class="wrap" id="catalog">
     <div class="cats" role="toolbar">${CATS.map(id=>{const n=id==="all"?ITEMS.length:ITEMS.filter(i=>i.cat===id).length;return n||id==="all"?`<button data-c="${id}" aria-pressed="${id===cat}">${esc(t(id))}<span class="c">${n}</span></button>`:""}).join("")}</div>
@@ -174,7 +191,7 @@ function cartHTML(){
   return `<div class="shade" data-close></div><aside class="drawer" aria-label="${esc(t("cart"))}"><div class="dh"><h3>${esc(t("cart"))}</h3><button class="x" data-close aria-label="${esc(t("close"))}">✕</button></div>
   <div class="items">${its.length?its.map(i=>`<div class="row"><div class="sw" style="${bg(i.color)}">${i.photos[0]?`<img src="${esc(i.photos[0])}" alt="">`:""}</div><div class="t"><div>${esc(loc(i,"name"))}</div>${i.size?`<small>${esc(i.size)}</small>`:""}</div><span class="p">${money(i.price)}</span><button class="rm" data-add="${i.id}" aria-label="✕">✕</button></div>`).join(""):`<p class="note" style="padding:24px 0;text-align:center">${esc(t("cartEmpty"))}</p>`}</div>
   <div class="df"><div class="total"><span>${esc(t("total"))}</span><span>${money(total)}</span></div>
-  ${its.length?`<p class="note">${esc(t("orderNote")).replace("{tg}",`<span class="mono">@${esc(tg())}</span>`)}</p><div class="order" id="orderText">${esc(txt)}</div>
+  ${its.length?`<div class="cartpay"><span class="acclbl">${esc(t("payWith"))}</span>${payBadges()}</div><p class="note">${esc(t("orderNote")).replace("{tg}",`<span class="mono">@${esc(tg())}</span>`)}</p><div class="order" id="orderText">${esc(txt)}</div>
   <a class="btn pri" id="tgLink" href="https://t.me/${encodeURIComponent(tg())}?text=${encodeURIComponent(txt)}" target="_blank" rel="noopener">${esc(t("openTg"))}</a><button class="btn" id="copy">${esc(t("copy"))}</button>`:""}</div></aside>`;
 }
 function itemHTML(i){
@@ -192,9 +209,11 @@ function toast(m){let el=$("#toast");if(!el){el=document.createElement("div");el
 
 /* ---------- События ---------- */
 document.addEventListener("click",ev=>{
+  document.querySelectorAll("details.langdd[open]").forEach(x=>{if(!x.contains(ev.target))x.removeAttribute("open")});
   if(ev.target.classList&&ev.target.classList.contains("modal")){openId=null;renderOverlay();return}
-  const el=ev.target.closest("[data-nav],[data-c],[data-add],[data-open],[data-close],[data-ph],#openCart,#copy,#tgLink");if(!el)return;
+  const el=ev.target.closest("[data-lang],[data-nav],[data-c],[data-add],[data-open],[data-close],[data-ph],#openCart,#copy,#tgLink");if(!el)return;
   const d=el.dataset;
+  if(d.lang){lang=d.lang;try{localStorage.setItem("htr-lang",lang)}catch(x){}render();return}
   if(d.nav){ev.preventDefault();goSlide(d.key,+d.nav)}
   else if(d.c){cat=d.c;render()}
   else if(d.add){cart.includes(d.add)?(cart=cart.filter(x=>x!==d.add),toast(t("removed"))):(cart.push(d.add),toast(t("added")));saveCart();render()}
