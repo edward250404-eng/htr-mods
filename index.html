@@ -82,7 +82,7 @@ select,.f input,.f textarea{background:var(--panel2);color:var(--fg);border:1px 
 .edit{position:absolute;bottom:10px;left:10px;background:var(--accent);color:var(--accent-ink);border:0;border-radius:4px;padding:5px 10px;font-weight:600;font-size:13px}
 .newcard{border:2px dashed var(--line);border-radius:10px;background:transparent;color:var(--muted);min-height:280px;display:grid;place-items:center;font-weight:600;font-size:16px}
 .newcard:hover{border-color:var(--accent);color:var(--accent)}
-.empty{grid-column:1/-1;text-align:center;color:var(--muted);padding:48px 0}
+.empty{grid-column:1/-1;text-align:center;color:#ff7a1a;padding:64px 0;font-family:var(--display);font-weight:700;font-size:clamp(28px,5vw,48px);text-transform:uppercase;letter-spacing:.04em}
 
 .how{border-top:1px solid var(--line);padding-block:40px}
 .how h2{font-family:var(--display);font-size:26px;margin:0 0 18px}
@@ -109,12 +109,13 @@ footer .wrap{display:flex;flex-direction:column;align-items:flex-start;gap:6px;p
 .row .t small{color:var(--muted);font-family:var(--mono);font-size:11px}
 .row .p{font-family:var(--mono);font-variant-numeric:tabular-nums}
 .row .rm{background:none;border:0;color:var(--muted);font-size:18px}
-.df{padding:16px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:12px}
+.df{padding:16px 16px 84px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:12px}
 .total{display:flex;justify-content:space-between;font-family:var(--display);font-size:22px}
 .order{background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:12px;font-family:var(--mono);font-size:12px;white-space:pre-wrap;user-select:all;max-height:160px;overflow:auto}
 .note{font-size:13px;color:var(--muted);margin:0}
 
 .modal{position:fixed;inset:0;z-index:22;display:grid;place-items:center;padding:16px;padding-top:calc(16px + env(safe-area-inset-top,0px));padding-bottom:calc(16px + env(safe-area-inset-bottom,0px))}
+.mbox .mbody{padding-bottom:80px}
 .mbox{background:var(--panel);border:1px solid var(--line);border-radius:12px;max-width:680px;width:100%;max-height:100%;overflow:auto}
 .mbox .thumb{cursor:default;aspect-ratio:16/9}
 .gal{display:flex;gap:8px;padding:10px 20px 0;overflow-x:auto}

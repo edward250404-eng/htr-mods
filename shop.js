@@ -7,30 +7,30 @@ const safeUrl=u=>/^https:\/\//i.test(u||"")?u:"";
 const T={
  ru:{search:"Найти мод…",cart:"Корзина",all:"Все",car:"Машины",moto:"Мотоциклы",ped:"Персонажи",map:"Карты",pack:"Наборы",other:"Другое",
   mods:"модов",install:"установка",world:"Весь мир",payment:"оплата",found:"Найдено",sOrder:"По порядку",sNew:"Сначала новые",sLo:"Сначала дешёвые",sHi:"Сначала дорогие",
-  empty:"Ничего не нашлось. Попробуй другое название.",how:"Как купить",step:"Шаг",h1:"Выбери мод",p1:"Нажми «Купить» или собери несколько модов в корзину.",h2:"Оплати",h3:"Установи",
+  empty:"Ничего не найдено",how:"Как купить",step:"Шаг",h1:"Выбери мод",p1:"Нажми «Купить» или собери несколько модов в корзину.",h2:"Оплати",h3:"Установи",
   p3:"В архиве мод и инструкция: Add-On через dlclist или Addon Peds. Вопросы пиши в Telegram.",foot:"Моды для одиночной игры GTA 5.",
   buy:"Купить",add:"В корзину",inCart:"В корзине",new:"Новинка",hit:"Хит",photos:"фото",cartEmpty:"Корзина пустая. Добавь моды из каталога.",total:"Итого",
-  orderNote:"Скопируй заказ и отправь в Telegram {tg}. Пришлю ссылку на оплату любой картой мира.",copy:"Скопировать заказ",openTg:"Открыть Telegram",order:"Заказ",
+  orderNote:"Скопируй заказ и отправь в Telegram {tg}. Я пришлю реквизиты для оплаты: PayPal, USDT или карта украинского банка.",copy:"Скопировать заказ",openTg:"Открыть Telegram",order:"Заказ",
   added:"Добавлено в корзину",removed:"Убрано из корзины",copied:"Заказ скопирован",selected:"Текст выделен, нажми Ctrl+C",
   cat:"Категория",size:"Размер",specs:"Особенности",game:"Игра",gameV:"GTA 5 (одиночная)",close:"Закрыть",prev:"Предыдущее фото",next:"Следующее фото",
   tagline:"Покупай в два клика",cta:"Смотреть моды",uaCards:"Карты Украины",loadErr:"Не удалось загрузить каталог. Обнови страницу.",
   heroTitle:"Моды для GTA 5",heroAccent:"от HTR",heroText:"Машины, мотоциклы и персонажи, собранные вручную в Blender. Каждый мод проверен в игре и ставится как Add-On, не заменяя стандартные модели.",payNote:"Оплата картой любой страны или PayPal. После оплаты файл приходит на почту автоматически."},
  en:{search:"Search mods…",cart:"Cart",all:"All",car:"Cars",moto:"Motorcycles",ped:"Characters",map:"Maps",pack:"Packs",other:"Other",
   mods:"mods",install:"install",world:"Worldwide",payment:"payment",found:"Found",sOrder:"Default order",sNew:"Newest first",sLo:"Price: low to high",sHi:"Price: high to low",
-  empty:"Nothing found. Try another name.",how:"How to buy",step:"Step",h1:"Pick a mod",p1:"Press “Buy” or add several mods to the cart.",h2:"Pay",h3:"Install",
+  empty:"Nothing found",how:"How to buy",step:"Step",h1:"Pick a mod",p1:"Press “Buy” or add several mods to the cart.",h2:"Pay",h3:"Install",
   p3:"The archive contains the mod and a guide: Add-On via dlclist or Addon Peds. Questions? Write on Telegram.",foot:"Mods for GTA 5 single player.",
   buy:"Buy",add:"Add to cart",inCart:"In cart",new:"New",hit:"Hit",photos:"photos",cartEmpty:"Your cart is empty. Add mods from the catalog.",total:"Total",
-  orderNote:"Copy the order and send it on Telegram to {tg}. I’ll send you a payment link for any card in the world.",copy:"Copy order",openTg:"Open Telegram",order:"Order",
+  orderNote:"Copy the order and send it on Telegram to {tg}. I’ll reply with payment details: PayPal, USDT or a Ukrainian bank card.",copy:"Copy order",openTg:"Open Telegram",order:"Order",
   added:"Added to cart",removed:"Removed from cart",copied:"Order copied",selected:"Text selected, press Ctrl+C",
   cat:"Category",size:"Size",specs:"Features",game:"Game",gameV:"GTA 5 (single player)",close:"Close",prev:"Previous photo",next:"Next photo",
   tagline:"Buy in two clicks",cta:"Browse mods",uaCards:"Ukrainian cards",loadErr:"Couldn’t load the catalog. Please refresh the page.",
   heroTitle:"Mods for GTA 5",heroAccent:"by HTR",heroText:"Cars, motorcycles and characters hand-built in Blender. Every mod is tested in game and installs as an Add-On without replacing the stock models.",payNote:"Pay with a card from any country or with PayPal. The file arrives by email automatically after payment."},
  hi:{search:"मॉड खोजें…",cart:"कार्ट",all:"सभी",car:"कारें",moto:"मोटरसाइकिलें",ped:"किरदार",map:"मैप",pack:"पैक",other:"अन्य",
   mods:"मॉड",install:"इंस्टॉल",world:"पूरी दुनिया",payment:"भुगतान",found:"मिले",sOrder:"क्रम से",sNew:"पहले नए",sLo:"पहले सस्ते",sHi:"पहले महंगे",
-  empty:"कुछ नहीं मिला। कोई दूसरा नाम आज़माएँ।",how:"कैसे खरीदें",step:"चरण",h1:"मॉड चुनें",p1:"«खरीदें» दबाएँ या कई मॉड कार्ट में जोड़ें।",h2:"भुगतान करें",h3:"इंस्टॉल करें",
+  empty:"कुछ नहीं मिला",how:"कैसे खरीदें",step:"चरण",h1:"मॉड चुनें",p1:"«खरीदें» दबाएँ या कई मॉड कार्ट में जोड़ें।",h2:"भुगतान करें",h3:"इंस्टॉल करें",
   p3:"आर्काइव में मॉड और निर्देश हैं: dlclist या Addon Peds से Add-On। कोई सवाल हो तो Telegram पर लिखें।",foot:"GTA 5 सिंगल-प्लेयर के लिए मॉड।",
   buy:"खरीदें",add:"कार्ट में डालें",inCart:"कार्ट में है",new:"नया",hit:"हिट",photos:"फ़ोटो",cartEmpty:"कार्ट खाली है। कैटलॉग से मॉड जोड़ें।",total:"कुल",
-  orderNote:"ऑर्डर कॉपी करके Telegram पर {tg} को भेजें। मैं किसी भी देश के कार्ड से भुगतान का लिंक भेजूँगा।",copy:"ऑर्डर कॉपी करें",openTg:"Telegram खोलें",order:"ऑर्डर",
+  orderNote:"ऑर्डर कॉपी करके Telegram पर {tg} को भेजें। मैं भुगतान की जानकारी भेजूँगा: PayPal, USDT या यूक्रेनी बैंक कार्ड।",copy:"ऑर्डर कॉपी करें",openTg:"Telegram खोलें",order:"ऑर्डर",
   added:"कार्ट में जोड़ा गया",removed:"कार्ट से हटाया गया",copied:"ऑर्डर कॉपी हो गया",selected:"टेक्स्ट चुना गया, Ctrl+C दबाएँ",
   cat:"श्रेणी",size:"साइज़",specs:"विशेषताएँ",game:"गेम",gameV:"GTA 5 (सिंगल-प्लेयर)",close:"बंद करें",prev:"पिछली फ़ोटो",next:"अगली फ़ोटो",
   tagline:"दो क्लिक में खरीदें",cta:"मॉड देखें",uaCards:"यूक्रेनी कार्ड",loadErr:"कैटलॉग लोड नहीं हुआ। पेज रीफ़्रेश करें।",
@@ -142,7 +142,7 @@ function render(){
    </div></section>
    <section class="wrap" id="catalog">
     <div class="cats" role="toolbar">${CATS.map(id=>{const n=id==="all"?ITEMS.length:ITEMS.filter(i=>i.cat===id).length;return n||id==="all"?`<button data-c="${id}" aria-pressed="${id===cat}">${esc(t(id))}<span class="c">${n}</span></button>`:""}).join("")}</div>
-    <div class="tools"><span class="found">${esc(t("found"))}: ${list.length}</span>
+    <div class="tools"><span></span>
      <select id="sort"><option value="order">${esc(t("sOrder"))}</option><option value="new">${esc(t("sNew"))}</option><option value="lo">${esc(t("sLo"))}</option><option value="hi">${esc(t("sHi"))}</option></select></div>
     <div class="grid">${list.length?list.map(card).join(""):`<div class="empty">${esc(t("empty"))}</div>`}</div>
    </section>
